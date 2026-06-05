@@ -195,6 +195,43 @@ Do NOT add `is:global` or `is:inline` unless you have a specific reason.
 
 ---
 
+## Brand design tokens
+
+### Typography
+| Role | Family | CSS token | Original Wix font |
+|------|--------|-----------|------------------|
+| Headings (h1–h6) | **Jost** | `--font-family-display` | futura-lt-w01-book |
+| Body copy | **Josefin Sans** | `--font-family-sans` | brandon-grot-w01-light |
+| Code | JetBrains Mono | `--font-family-mono` | — |
+
+Both fonts are loaded from Google Fonts in `BaseHead.astro` (single `<link>` tag,
+`display=swap`). Jost is an open-source Futura alternative; Josefin Sans is the
+closest freely available match to Brandon Grotesque's geometric + humanist character.
+
+Fallback stacks in `global.css` cover the system fonts (Futura/Century Gothic,
+Gill Sans/Optima) for the rare case Google Fonts is unavailable.
+
+### Colors
+The primary brand green is **`rgb(56, 96, 62)`** (`#38603e`), mapped to `brand-600`
+in the Tailwind color scale. The full scale lives in `src/styles/global.css`
+under `@theme` and is derived from HSL(127°, 26%, L%):
+
+| Token | Hex | Use |
+|-------|-----|-----|
+| `brand-50` | `#f5f9f6` | Subtle backgrounds |
+| `brand-100` | `#e9f2ea` | Tag/badge backgrounds |
+| `brand-200` | `#c5ddc8` | Borders, dividers |
+| `brand-300` | `#98c39d` | |
+| `brand-400` | `#64a56c` | Links in dark mode |
+| `brand-500` | `#4d8454` | Focus rings |
+| `brand-600` | **`#38603e`** | **Primary brand color — buttons, links** |
+| `brand-700` | `#2b4a2f` | Button hover states |
+| `brand-800` | `#1e3421` | Dark text on light brand bg |
+| `brand-900` | `#132014` | |
+| `brand-950` | `#0b130c` | |
+
+---
+
 ## Tailwind usage conventions
 
 ### Do's

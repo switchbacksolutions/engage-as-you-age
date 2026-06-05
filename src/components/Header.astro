@@ -18,11 +18,14 @@ function isActive(href: string): boolean {
 
 <header class="sticky top-0 z-50 border-b border-gray-200 bg-white/90 backdrop-blur dark:border-gray-700 dark:bg-gray-900/90">
   <div class="mx-auto flex max-w-4xl items-center justify-between px-4 py-4 sm:px-6">
-    <a
-      href="/"
-      class="text-xl font-bold text-gray-900 no-underline hover:text-brand-600 dark:text-white dark:hover:text-brand-400 transition-colors"
-    >
-      Engage As You Age
+    <a href="/" class="shrink-0 no-underline" aria-label="Engage As You Age — home">
+      <img
+        src="/engagelogo.avif"
+        alt="Engage As You Age"
+        width="167"
+        height="75"
+        class="h-[75px] w-auto"
+      />
     </a>
 
     <nav aria-label="Main navigation">
@@ -32,7 +35,7 @@ function isActive(href: string): boolean {
             <a
               href={href}
               class:list={[
-                'text-sm font-medium no-underline transition-colors',
+                'text-base font-medium no-underline transition-colors',
                 isActive(href)
                   ? 'text-brand-600 dark:text-brand-400'
                   : 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white',

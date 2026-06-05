@@ -4,19 +4,25 @@
 @variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-family-sans: 'Inter', system-ui, sans-serif;
+  /* Heading font: Jost — open-source Futura alternative (geometric sans) */
+  --font-family-display: 'Jost', 'Futura', 'Century Gothic', 'Trebuchet MS', sans-serif;
+  /* Body font: Josefin Sans — closest Brandon Grotesque alternative (geometric + humanist) */
+  --font-family-sans: 'Josefin Sans', 'Brandon Grotesque', 'Gill Sans', 'Optima', sans-serif;
   --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
-  --color-brand-50: #f0fdf4;
-  --color-brand-100: #dcfce7;
-  --color-brand-200: #bbf7d0;
-  --color-brand-300: #86efac;
-  --color-brand-400: #4ade80;
-  --color-brand-500: #22c55e;
-  --color-brand-600: #16a34a;
-  --color-brand-700: #15803d;
-  --color-brand-800: #166534;
-  --color-brand-900: #14532d;
+  /* Brand green scale — anchored on rgb(56, 96, 62) / #38603e at 600.
+     Full scale derived from HSL(127°, 26%, L%) to keep the hue consistent. */
+  --color-brand-50:  #f5f9f6;
+  --color-brand-100: #e9f2ea;
+  --color-brand-200: #c5ddc8;
+  --color-brand-300: #98c39d;
+  --color-brand-400: #64a56c;
+  --color-brand-500: #4d8454;
+  --color-brand-600: #38603e;  /* ← primary brand green: rgb(56, 96, 62) */
+  --color-brand-700: #2b4a2f;
+  --color-brand-800: #1e3421;
+  --color-brand-900: #132014;
+  --color-brand-950: #0b130c;
 }
 
 /* ─── CSS Custom Properties ─────────────────────────────────────────────────── */
@@ -42,6 +48,10 @@
 
   body {
     @apply min-h-screen font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-display);
   }
 
   h1 { @apply text-4xl font-bold tracking-tight; }
@@ -129,4 +139,50 @@
   .text-pretty {
     text-wrap: pretty;
   }
+}
+
+/* ─── Wix site easing & animation tokens ────────────────────────────────────
+   Extracted from the original Wix site's page-transition and interaction CSS.
+   cubic-bezier(.83,0,.17,1)  = heavy ease-in-out (page slides, .6s)
+   cubic-bezier(.87,0,.13,1)  = strong ease-in-out (panel slides)
+   cubic-bezier(.22,1,.36,1)  = spring ease-out (incoming panels)
+   cubic-bezier(.64,0,.78,0)  = ease-in (outgoing panels)
+─────────────────────────────────────────────────────────────────────────── */
+:root {
+  --ease-slide:    cubic-bezier(.83, 0, .17, 1);
+  --ease-panel:    cubic-bezier(.87, 0, .13, 1);
+  --ease-spring:   cubic-bezier(.22, 1, .36, 1);
+  --ease-in-fast:  cubic-bezier(.64, 0, .78, 0);
+
+  /* Timing scale */
+  --dur-quick:     0.2s;
+  --dur-hover:     0.4s;
+  --dur-panel:     0.5s;
+  --dur-page:      0.6s;
+
+  /* Shadows */
+  --shadow-dropdown: 0 1px 4px rgba(0, 0, 0, 0.6);
+  --shadow-header:   0 0 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Page-transition keyframes (matches original site's slide & fade patterns) */
+@keyframes slide-in-right {
+  from { transform: translate(100%); }
+}
+@keyframes slide-out-left {
+  80% { opacity: 1; }
+  to   { opacity: 0; transform: translate(-100%); }
+}
+@keyframes slide-in-down {
+  from { transform: translateY(-100%); }
+}
+@keyframes slide-out-up {
+  80% { opacity: 1; }
+  to   { opacity: 0; transform: translateY(100%); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+}
+@keyframes fade-out {
+  to { opacity: 0; }
 }
