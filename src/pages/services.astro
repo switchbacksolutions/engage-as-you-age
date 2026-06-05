@@ -1,0 +1,129 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Our Services"
+  description="Engage As You Age offers one-on-one visits and group programs to reduce isolation and foster meaningful connections for Bay Area seniors."
+>
+  <main>
+    <!-- Hero -->
+    <section class="bg-gradient-to-br from-brand-50 to-white dark:from-gray-900 dark:to-gray-950">
+      <div class="mx-auto max-w-4xl px-4 py-20 sm:px-6 text-center">
+        <h1 class="text-5xl font-bold tracking-tight text-gray-900 dark:text-white text-balance">
+          Our Services
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-xl text-gray-600 dark:text-gray-400 text-pretty">
+          Since 2009, we've helped seniors find purpose and joy through conversation, activities, and
+          outings. We pair individuals based on shared interests and personalities, resulting in
+          decreased loneliness, increased happiness, and improved quality of life.
+        </p>
+      </div>
+    </section>
+
+    <!-- One-on-One Visits -->
+    <section id="one-on-one" class="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+      <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+        <img
+          src="https://static.wixstatic.com/media/18afbe_27a0753bc9bf470d9e55595444e59c19~mv2.jpg"
+          alt="Activity specialist on a one-on-one visit with a senior"
+          class="rounded-xl w-full object-cover aspect-video shadow-sm"
+          loading="lazy"
+          width={600}
+          height={338}
+        />
+        <div>
+          <h2 class="text-3xl font-semibold text-gray-900 dark:text-white">One-on-One Visits</h2>
+          <p class="mt-4 text-gray-600 dark:text-gray-400">
+            Activity Specialists lead customized visits in homes or facilities, with optional outings
+            to parks and museums. Two-hour minimum; no travel fees.
+          </p>
+          <p class="mt-4 text-gray-600 dark:text-gray-400">
+            We serve seniors with a wide range of abilities, including those living with dementia,
+            Alzheimer's, and physical limitations.
+          </p>
+          <h3 class="mt-6 text-lg font-semibold text-gray-900 dark:text-white">Benefits</h3>
+          <ul class="mt-3 space-y-2 list-none p-0 m-0">
+            {[
+              'Cultivates belonging',
+              'Increases engagement',
+              'Alleviates isolation',
+              'Stimulates the mind',
+              'Enables self-reflection',
+              'Sparks joy',
+            ].map((benefit) => (
+              <li class="flex items-center gap-2 text-gray-600 dark:text-gray-400">
+                <span class="text-brand-600 dark:text-brand-400" aria-hidden="true">&#10003;</span>
+                {benefit}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Group Programs -->
+    <section id="group-programs" class="bg-gray-50 dark:bg-gray-900">
+      <div class="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+        <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div class="order-last lg:order-first">
+            <h2 class="text-3xl font-semibold text-gray-900 dark:text-white">Group Programs</h2>
+            <p class="mt-4 text-gray-600 dark:text-gray-400">
+              Discussion groups and classes (1&ndash;2 hours) held at retirement facilities. Topics
+              include history, politics, literature, theater, and art/crafts.
+            </p>
+            <p class="mt-4 text-gray-600 dark:text-gray-400">
+              Our group programs create an environment where seniors can connect over shared interests,
+              reducing isolation and building community.
+            </p>
+          </div>
+          <img
+            src="https://static.wixstatic.com/media/14cdcba9e7c98edcdfa3193c684b3008.jpg"
+            alt="Three friends laughing together in a group program"
+            class="rounded-xl w-full object-cover aspect-video shadow-sm"
+            loading="lazy"
+            width={600}
+            height={338}
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+      <blockquote class="text-center">
+        <p class="mx-auto max-w-2xl text-2xl font-medium italic text-gray-800 dark:text-gray-200 text-balance">
+          "Engage As You Age has been like finding a diamond in a field of weeds. It's given me such a feeling of relief."
+        </p>
+        <footer class="mt-6 text-gray-500 dark:text-gray-400">
+          &mdash; Carol S., San Francisco
+        </footer>
+      </blockquote>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-brand-600 dark:bg-brand-800">
+      <div class="mx-auto max-w-4xl px-4 py-16 sm:px-6 text-center">
+        <h2 class="text-3xl font-semibold text-white">Ready to Find the Right Specialist?</h2>
+        <p class="mx-auto mt-4 max-w-xl text-lg text-green-100">
+          Contact us to schedule a free consultation. We'll match your loved one with the perfect
+          Activity Specialist.
+        </p>
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+          <a
+            href="/contact"
+            class="inline-flex items-center rounded-md bg-white px-6 py-3 text-sm font-semibold text-brand-700 shadow hover:bg-brand-50 transition-colors"
+          >
+            Schedule a Consultation
+          </a>
+          <a
+            href="tel:4156906944"
+            class="inline-flex items-center rounded-md border border-white px-6 py-3 text-sm font-semibold text-white hover:bg-brand-700 transition-colors"
+          >
+            Call 415-690-6944
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

@@ -1,0 +1,218 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const steps = [
+  'Initial phone interview',
+  'In-person interview to assess interests and situational responses',
+  'Reference check',
+  'Professional criminal and background check',
+  'Paid training before client placement',
+];
+---
+
+<BaseLayout
+  title="Work For Us"
+  description="Join Engage As You Age as an Activity Specialist in the Greater Bay Area. The most meaningful part-time job you'll ever have."
+>
+  <main>
+    <!-- Hero -->
+    <section class="bg-gradient-to-br from-brand-50 to-white dark:from-gray-900 dark:to-gray-950">
+      <div class="mx-auto max-w-4xl px-4 py-20 sm:px-6 text-center">
+        <h1 class="text-5xl font-bold tracking-tight text-gray-900 dark:text-white text-balance">
+          Work For Us
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-xl text-gray-600 dark:text-gray-400">
+          The most meaningful part-time job you'll ever have.
+        </p>
+      </div>
+    </section>
+
+    <!-- About the role -->
+    <section class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+      <div class="prose-content">
+        <p>
+          We're seeking Activity Specialists across the Greater Bay Area for part-time positions. We
+          welcome individuals with expertise and passion for lifelong learning — yoga instructors,
+          artists, historians, and anyone with specialized knowledge or a love of conversation.
+        </p>
+        <p>
+          Prior experience working with seniors is not required. We're looking for candidates with
+          enthusiasm, intelligence, patience, and curiosity. If that sounds like you, we'd love to
+          hear from you.
+        </p>
+
+        <h2>Our Screening Process</h2>
+        <ol>
+          {steps.map((step) => <li>{step}</li>)}
+        </ol>
+
+        <h2>What Our Employees Say</h2>
+        <blockquote>
+          <p>
+            "Engage As You Age is the most caring and conscientious employer I've ever worked for.
+            They are genuinely interested in employee success."
+          </p>
+          <footer>&mdash; Amie, South San Francisco</footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Application form -->
+    <section class="bg-gray-50 dark:bg-gray-900">
+      <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+        <h2 class="text-3xl font-semibold text-gray-900 dark:text-white">Apply Now</h2>
+        <p class="mt-4 text-gray-600 dark:text-gray-400">
+          Fill out the form below and we'll be in touch. You can also call us at{' '}
+          <a href="tel:4156906944" class="font-medium">415-690-6944</a>.
+        </p>
+
+        <form
+          name="work-for-us"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          class="mt-8 space-y-6"
+        >
+          <p class="hidden">
+            <label>Don't fill this out: <input name="bot-field" /></label>
+          </p>
+
+          <div class="grid gap-6 sm:grid-cols-2">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                Full Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                autocomplete="name"
+                class="mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder-gray-400 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-brand-400 dark:focus:ring-brand-400"
+                placeholder="Jane Smith"
+              />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                autocomplete="email"
+                class="mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder-gray-400 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-brand-400 dark:focus:ring-brand-400"
+                placeholder="jane@example.com"
+              />
+            </div>
+          </div>
+
+          <div class="grid gap-6 sm:grid-cols-2">
+            <div>
+              <label for="phone" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                Phone
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                autocomplete="tel"
+                class="mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder-gray-400 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-brand-400 dark:focus:ring-brand-400"
+                placeholder="(415) 555-0100"
+              />
+            </div>
+            <div>
+              <label for="start-date" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                Available Start Date
+              </label>
+              <input
+                type="date"
+                id="start-date"
+                name="start-date"
+                required
+                class="mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-900 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:focus:border-brand-400 dark:focus:ring-brand-400"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label for="linkedin" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+              LinkedIn or CV URL
+            </label>
+            <input
+              type="url"
+              id="linkedin"
+              name="linkedin"
+              class="mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder-gray-400 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-brand-400 dark:focus:ring-brand-400"
+              placeholder="https://linkedin.com/in/your-profile"
+            />
+          </div>
+
+          <div class="grid gap-6 sm:grid-cols-2">
+            <div>
+              <label for="hours" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                Desired hours per week
+              </label>
+              <input
+                type="text"
+                id="hours"
+                name="hours"
+                class="mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder-gray-400 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-brand-400 dark:focus:ring-brand-400"
+                placeholder="e.g. 10–15 hours"
+              />
+            </div>
+            <div>
+              <label for="pay" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                Hourly pay expectations
+              </label>
+              <input
+                type="text"
+                id="pay"
+                name="pay"
+                class="mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder-gray-400 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-brand-400 dark:focus:ring-brand-400"
+                placeholder="e.g. $22–$28/hr"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label for="skills" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+              Special skills and interests
+            </label>
+            <input
+              type="text"
+              id="skills"
+              name="skills"
+              class="mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder-gray-400 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-brand-400 dark:focus:ring-brand-400"
+              placeholder="e.g. yoga, art history, bridge, memoir writing"
+            />
+          </div>
+
+          <div>
+            <label for="motivation" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+              Why do you want to work with seniors?
+            </label>
+            <textarea
+              id="motivation"
+              name="motivation"
+              required
+              rows="5"
+              class="mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder-gray-400 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-brand-400 dark:focus:ring-brand-400"
+              placeholder="Tell us what draws you to this work…"
+            ></textarea>
+          </div>
+
+          <div>
+            <button
+              type="submit"
+              class="inline-flex items-center rounded-md bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:bg-brand-500 dark:hover:bg-brand-400 transition-colors"
+            >
+              Submit Application
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

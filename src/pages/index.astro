@@ -1,0 +1,197 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import FormattedDate from '@/components/FormattedDate.astro';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const recentPosts = allPosts
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+---
+
+<BaseLayout
+  title="Engage As You Age"
+  description="Engage As You Age fosters social connections for San Francisco Bay Area older adults and people living with dementia or other impairments."
+>
+  <main>
+    <!-- Hero -->
+    <section class="bg-gradient-to-br from-brand-50 to-white dark:from-gray-900 dark:to-gray-950">
+      <div class="mx-auto max-w-4xl px-4 py-24 sm:px-6 text-center">
+        <h1 class="text-5xl font-bold tracking-tight text-gray-900 dark:text-white text-balance">
+          The Social Specialists<br />
+          <span class="text-brand-600 dark:text-brand-400">for Seniors</span>
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-xl text-gray-600 dark:text-gray-400 text-pretty">
+          Engage As You Age fosters social connections for San Francisco Bay Area older adults and people living with dementia or other impairments.
+        </p>
+        <p class="mx-auto mt-3 max-w-xl text-lg text-gray-500 dark:text-gray-400">
+          Our clients feel more valued, supported and fulfilled as they age.
+        </p>
+        <div class="mt-10 flex flex-wrap justify-center gap-4">
+          <a href="/services" class="btn-primary">Our Services</a>
+          <a href="/contact" class="btn-secondary">Schedule a Consultation</a>
+        </div>
+        <p class="mt-6 text-sm text-gray-500 dark:text-gray-400">
+          Call us at{' '}
+          <a
+            href="tel:4156906944"
+            class="font-medium text-brand-600 dark:text-brand-400 no-underline hover:underline"
+          >
+            415-690-6944
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <!-- About snippet -->
+    <section class="mx-auto max-w-4xl px-4 py-16 sm:px-6 text-center">
+      <h2 class="text-3xl font-semibold text-gray-900 dark:text-white">
+        The Leader in Senior Social Connection
+      </h2>
+      <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-600 dark:text-gray-400 text-pretty">
+        Founded in 2009, Engage As You Age has paired thousands of seniors with smart, empathetic specialists who share their interests and passions. We specialize in those living with dementia, Alzheimer's, or physical or cognitive limitations.
+      </p>
+      <a
+        href="/about"
+        class="mt-6 inline-block font-medium text-brand-600 dark:text-brand-400 no-underline hover:underline"
+      >
+        Learn more about us →
+      </a>
+    </section>
+
+    <!-- Services -->
+    <section class="bg-gray-50 dark:bg-gray-900">
+      <div class="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+        <h2 class="mb-10 text-center text-3xl font-semibold text-gray-900 dark:text-white">
+          Our Services
+        </h2>
+        <div class="grid gap-8 sm:grid-cols-2">
+          <a href="/services#one-on-one" class="card group no-underline">
+            <img
+              src="https://static.wixstatic.com/media/18afbe_27a0753bc9bf470d9e55595444e59c19~mv2.jpg"
+              alt="Activity specialist on a one-on-one visit with a senior"
+              class="mb-4 h-48 w-full rounded-lg object-cover"
+              loading="lazy"
+              width={600}
+              height={400}
+            />
+            <h3 class="text-xl font-semibold text-gray-900 group-hover:text-brand-600 dark:text-white dark:group-hover:text-brand-400 transition-colors">
+              One-on-One Visits
+            </h3>
+            <p class="mt-2 text-gray-600 dark:text-gray-400">
+              Customized visits in homes or facilities led by Activity Specialists, with optional outings to parks and museums. Two-hour minimum; no travel fees.
+            </p>
+          </a>
+          <a href="/services#group-programs" class="card group no-underline">
+            <img
+              src="https://static.wixstatic.com/media/14cdcba9e7c98edcdfa3193c684b3008.jpg"
+              alt="Three friends laughing together in a group program"
+              class="mb-4 h-48 w-full rounded-lg object-cover"
+              loading="lazy"
+              width={600}
+              height={400}
+            />
+            <h3 class="text-xl font-semibold text-gray-900 group-hover:text-brand-600 dark:text-white dark:group-hover:text-brand-400 transition-colors">
+              Group Programs
+            </h3>
+            <p class="mt-2 text-gray-600 dark:text-gray-400">
+              Discussion groups and classes covering history, politics, literature, theater, and art/crafts held at retirement facilities.
+            </p>
+          </a>
+        </div>
+        <div class="mt-8 text-center">
+          <a href="/services" class="btn-primary">View All Services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+      <blockquote class="text-center">
+        <p class="mx-auto max-w-2xl text-2xl font-medium italic text-gray-800 dark:text-gray-200 text-balance">
+          "Engage As You Age has been like finding a diamond in a field of weeds. It's given me such a feeling of relief."
+        </p>
+        <footer class="mt-6 text-gray-500 dark:text-gray-400">
+          &mdash; Carol S., San Francisco
+        </footer>
+      </blockquote>
+    </section>
+
+    <!-- Recent blog posts -->
+    {recentPosts.length > 0 && (
+      <section class="bg-gray-50 dark:bg-gray-900">
+        <div class="mx-auto max-w-4xl px-4 py-16 sm:px-6">
+          <div class="flex items-baseline justify-between mb-8">
+            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">
+              Recent Posts
+            </h2>
+            <a
+              href="/blog"
+              class="text-sm font-medium text-brand-600 no-underline hover:underline dark:text-brand-400"
+            >
+              View all →
+            </a>
+          </div>
+          <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 list-none m-0 p-0">
+            {recentPosts.map((post) => (
+              <li>
+                <a href={`/blog/${post.id}`} class="group block card h-full no-underline">
+                  {post.data.heroImage && (
+                    <img
+                      src={post.data.heroImage}
+                      alt={post.data.title}
+                      class="mb-4 h-40 w-full rounded-lg object-cover"
+                      loading="lazy"
+                      width={600}
+                      height={315}
+                    />
+                  )}
+                  {post.data.tags.length > 0 && (
+                    <div class="mb-2 flex flex-wrap gap-1">
+                      {post.data.tags.slice(0, 2).map((tag) => (
+                        <span class="tag-pill">{tag}</span>
+                      ))}
+                    </div>
+                  )}
+                  <h3 class="text-lg font-semibold text-gray-900 group-hover:text-brand-600 dark:text-white dark:group-hover:text-brand-400 transition-colors text-balance">
+                    {post.data.title}
+                  </h3>
+                  <p class="mt-2 text-sm text-gray-600 dark:text-gray-400 line-clamp-3">
+                    {post.data.description}
+                  </p>
+                  <p class="mt-4 text-xs text-gray-500 dark:text-gray-400">
+                    <FormattedDate date={post.data.pubDate} format="short" />
+                  </p>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )}
+
+    <!-- CTA -->
+    <section class="bg-brand-600 dark:bg-brand-800">
+      <div class="mx-auto max-w-4xl px-4 py-16 sm:px-6 text-center">
+        <h2 class="text-3xl font-semibold text-white">Ready to Get Started?</h2>
+        <p class="mx-auto mt-4 max-w-xl text-lg text-green-100">
+          Contact us today to schedule a free consultation. We'll find the right specialist for your loved one.
+        </p>
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+          <a
+            href="/contact"
+            class="inline-flex items-center rounded-md bg-white px-6 py-3 text-sm font-semibold text-brand-700 shadow hover:bg-brand-50 transition-colors"
+          >
+            Schedule a Consultation
+          </a>
+          <a
+            href="tel:4156906944"
+            class="inline-flex items-center rounded-md border border-white px-6 py-3 text-sm font-semibold text-white hover:bg-brand-700 transition-colors"
+          >
+            Call 415-690-6944
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

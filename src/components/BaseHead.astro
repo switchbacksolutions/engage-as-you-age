@@ -1,0 +1,89 @@
+---
+/**
+ * BaseHead.astro
+ * ─────────────────────────────────────────────────────────────────────────────
+ * Renders all <head> content: charset, viewport, title, meta description,
+ * canonical URL, Open Graph / Twitter card tags, and the global stylesheet.
+ *
+ * Usage:
+ *   <BaseHead title="Page Title" description="Page description." />
+ */
+
+interface Props {
+  /** Page <title> — appended with the site name */
+  title: string;
+  /** Meta description and OG description */
+  description: string;
+  /** Absolute URL to OG image (defaults to /og-default.png) */
+  image?: string;
+  /** Canonical URL — defaults to the current page URL */
+  canonicalURL?: URL | string;
+}
+
+const SITE_NAME = 'Engage As You Age';
+
+const {
+  title,
+  description,
+  image = '/og-default.png',
+  canonicalURL = Astro.url,
+} = Astro.props;
+
+const pageTitle = title === SITE_NAME ? title : `${title} | ${SITE_NAME}`;
+const canonical = new URL(canonicalURL, Astro.site ?? Astro.url).href;
+const gaId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
+---
+
+<!-- Charset & viewport -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+<!-- Primary meta -->
+<title>{pageTitle}</title>
+<meta name="description" content={description} />
+<meta name="generator" content={Astro.generator} />
+<link rel="canonical" href={canonical} />
+
+<!-- RSS auto-discovery -->
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title={`${SITE_NAME} RSS Feed`}
+  href="/rss.xml"
+/>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonical} />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(image, Astro.site ?? Astro.url).href} />
+<meta property="og:site_name" content={SITE_NAME} />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonical} />
+<meta name="twitter:title" content={pageTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={new URL(image, Astro.site ?? Astro.url).href} />
+
+<!-- Global stylesheet -->
+<link rel="stylesheet" href="/src/styles/global.css" />
+
+{gaId && (
+  <Fragment>
+    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+    <script is:inline define:vars={{ gaId }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', gaId);
+    </script>
+  </Fragment>
+)}
+
+<script is:inline>(function(w,s){var e=document.createElement("script");e.type="text/javascript";e.async=true;e.src="https://cdn.pagesense.io/js/untitled4999/3772aab94a524cf0940d6f7956698a6d.js";var x=document.getElementsByTagName("script")[0];x.parentNode.insertBefore(e,x);})(window,"script");</script>

@@ -1,0 +1,118 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact Us"
+  description="Schedule a consultation with Engage As You Age. Call 415-690-6944 or fill out our contact form and we'll get back to you."
+>
+  <main class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+    <h1 class="text-4xl font-bold text-gray-900 dark:text-white">
+      Contact Us to Schedule a Consultation
+    </h1>
+    <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
+      Please fill out the form below or call us at{' '}
+      <a href="tel:4156906944" class="font-medium">415-690-6944</a>{' '}
+      to get started today.
+    </p>
+    <p class="mt-2 text-gray-600 dark:text-gray-400">
+      We'll take the time to understand the needs of you or your loved one to determine the most
+      beneficial activities and conversational partner. We'll draw from a bank of carefully screened
+      Activity Specialists and suggest a program that best meets your needs and schedule.
+    </p>
+
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      class="mt-10 space-y-6"
+    >
+      <p class="hidden">
+        <label>Don't fill this out: <input name="bot-field" /></label>
+      </p>
+
+      <div class="grid gap-6 sm:grid-cols-2">
+        <div>
+          <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            autocomplete="name"
+            class="mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder-gray-400 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-brand-400 dark:focus:ring-brand-400"
+            placeholder="Your name"
+          />
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            autocomplete="email"
+            class="mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder-gray-400 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-brand-400 dark:focus:ring-brand-400"
+            placeholder="your@email.com"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label for="phone" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+          Phone
+        </label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          autocomplete="tel"
+          class="mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder-gray-400 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-brand-400 dark:focus:ring-brand-400"
+          placeholder="(415) 555-0100"
+        />
+      </div>
+
+      <div>
+        <label for="referral" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+          How did you hear about us?
+        </label>
+        <input
+          type="text"
+          id="referral"
+          name="referral"
+          class="mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder-gray-400 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-brand-400 dark:focus:ring-brand-400"
+          placeholder="Google, friend referral, doctor recommendation, etc."
+        />
+      </div>
+
+      <div>
+        <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+          Please tell us how we can help you.
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          required
+          rows="6"
+          class="mt-1 block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-gray-900 placeholder-gray-400 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-brand-400 dark:focus:ring-brand-400"
+          placeholder="Tell us about your loved one and how we can help…"
+        ></textarea>
+      </div>
+
+      <div>
+        <button
+          type="submit"
+          class="inline-flex items-center rounded-md bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 dark:bg-brand-500 dark:hover:bg-brand-400 transition-colors"
+        >
+          Send Message
+        </button>
+      </div>
+    </form>
+  </main>
+</BaseLayout>

@@ -1,0 +1,93 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const counties = [
+  'Alameda',
+  'Contra Costa',
+  'Marin',
+  'Napa',
+  'San Francisco',
+  'San Mateo',
+  'Santa Clara',
+  'Sonoma',
+];
+---
+
+<BaseLayout
+  title="Our Service Area"
+  description="Engage As You Age provides in-home senior social visits throughout the San Francisco Bay Area, including 8 Northern California counties."
+>
+  <main>
+    <!-- Hero -->
+    <section class="bg-gradient-to-br from-brand-50 to-white dark:from-gray-900 dark:to-gray-950">
+      <div class="mx-auto max-w-4xl px-4 py-20 sm:px-6 text-center">
+        <h1 class="text-5xl font-bold tracking-tight text-gray-900 dark:text-white text-balance">
+          Our Service Area
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-xl text-gray-600 dark:text-gray-400 text-pretty">
+          Services designed to meet your needs, where you need them.
+        </p>
+      </div>
+    </section>
+
+    <!-- Body -->
+    <section class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+      <h2 class="text-3xl font-semibold text-gray-900 dark:text-white">
+        Experience and Expertise at Your Service
+      </h2>
+      <p class="mt-6 text-lg text-gray-600 dark:text-gray-400">
+        Founded in 2009 in San Francisco, Engage As You Age has expanded to serve the Greater Bay Area.
+        We encourage you to contact us to learn how our social visits can enhance quality of life for
+        seniors and their families.
+      </p>
+
+      <h3 class="mt-10 text-xl font-semibold text-gray-900 dark:text-white">Counties We Serve</h3>
+      <ul class="mt-4 grid gap-3 sm:grid-cols-2 list-none p-0 m-0">
+        {counties.map((county) => (
+          <li class="flex items-center gap-2 text-gray-700 dark:text-gray-300">
+            <span class="text-brand-600 dark:text-brand-400" aria-hidden="true">&#10003;</span>
+            {county} County
+          </li>
+        ))}
+      </ul>
+
+      <div class="mt-10 rounded-xl border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Hours of Operation</h3>
+        <dl class="mt-3 space-y-1 text-gray-600 dark:text-gray-400">
+          <div class="flex gap-4">
+            <dt class="w-36 font-medium text-gray-700 dark:text-gray-300">Monday &ndash; Friday</dt>
+            <dd>8:00 am &ndash; 8:00 pm</dd>
+          </div>
+          <div class="flex gap-4">
+            <dt class="w-36 font-medium text-gray-700 dark:text-gray-300">Saturday &ndash; Sunday</dt>
+            <dd>8:00 am &ndash; 5:00 pm</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-brand-600 dark:bg-brand-800">
+      <div class="mx-auto max-w-4xl px-4 py-16 sm:px-6 text-center">
+        <h2 class="text-3xl font-semibold text-white">Serving Your Area?</h2>
+        <p class="mx-auto mt-4 max-w-xl text-lg text-green-100">
+          Contact us to confirm coverage in your neighborhood and schedule a free consultation.
+        </p>
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+          <a
+            href="/contact"
+            class="inline-flex items-center rounded-md bg-white px-6 py-3 text-sm font-semibold text-brand-700 shadow hover:bg-brand-50 transition-colors"
+          >
+            Contact Us
+          </a>
+          <a
+            href="tel:4156906944"
+            class="inline-flex items-center rounded-md border border-white px-6 py-3 text-sm font-semibold text-white hover:bg-brand-700 transition-colors"
+          >
+            Call 415-690-6944
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

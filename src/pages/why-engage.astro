@@ -1,0 +1,97 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const benefits = [
+  {
+    title: 'Increased happiness',
+    description:
+      'Relationships make us happier and more joyful, according to the longest study of adult life.',
+  },
+  {
+    title: 'Better health',
+    description:
+      'Studies show social interaction lowers blood pressure and reduces the risk of dementia.',
+  },
+  {
+    title: 'Improved motor function',
+    description:
+      'Seniors who remain engaged in social interaction experience less motor decline with age.',
+  },
+  {
+    title: 'A longer life',
+    description:
+      'People with strong social and community ties were two to three times less likely to die during a 9-year study.',
+  },
+];
+---
+
+<BaseLayout
+  title="Why Engage"
+  description="Social connection is essential for healthy aging. Learn why Engage As You Age creates authentic relationships that reduce loneliness and improve wellbeing."
+>
+  <main>
+    <!-- Hero -->
+    <section class="bg-gradient-to-br from-brand-50 to-white dark:from-gray-900 dark:to-gray-950">
+      <div class="mx-auto max-w-4xl px-4 py-20 sm:px-6 text-center">
+        <h1 class="text-5xl font-bold tracking-tight text-gray-900 dark:text-white text-balance">
+          Why Engage
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-xl text-gray-600 dark:text-gray-400 text-pretty">
+          We believe authentic relationships are as essential to life as food and shelter. We specialize
+          in pairing seniors with individuals who share their interests to bring more meaning and joy to
+          older adults as they age.
+        </p>
+      </div>
+    </section>
+
+    <!-- Body -->
+    <section class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+      <h2 class="text-3xl font-semibold text-gray-900 dark:text-white text-balance">
+        Connection is Essential for Healthy Aging
+      </h2>
+      <p class="mt-6 text-lg text-gray-600 dark:text-gray-400 text-pretty">
+        Unfortunately, as we grow older, it becomes more difficult to maintain the social fabric that
+        keeps our mind and spirit strong. Engage As You Age creates authentic connections that reduce
+        loneliness and its associated side effects. We pair our older adult clients with individuals who
+        complement their personality and interests to cultivate relationships that are genuine and
+        engaging.
+      </p>
+
+      <!-- Benefits -->
+      <ul class="mt-12 grid gap-6 sm:grid-cols-2 list-none m-0 p-0">
+        {benefits.map(({ title, description }) => (
+          <li class="card">
+            <h3 class="font-semibold text-gray-900 dark:text-white">{title}</h3>
+            <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">{description}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-brand-600 dark:bg-brand-800">
+      <div class="mx-auto max-w-4xl px-4 py-16 sm:px-6 text-center">
+        <h2 class="text-3xl font-semibold text-white">
+          Give Your Loved One the Gift of Connection
+        </h2>
+        <p class="mx-auto mt-4 max-w-xl text-lg text-green-100">
+          Schedule a free consultation to learn how we can help your family.
+        </p>
+        <div class="mt-8 flex flex-wrap justify-center gap-4">
+          <a
+            href="/contact"
+            class="inline-flex items-center rounded-md bg-white px-6 py-3 text-sm font-semibold text-brand-700 shadow hover:bg-brand-50 transition-colors"
+          >
+            Schedule a Consultation
+          </a>
+          <a
+            href="/services"
+            class="inline-flex items-center rounded-md border border-white px-6 py-3 text-sm font-semibold text-white hover:bg-brand-700 transition-colors"
+          >
+            View Our Services
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

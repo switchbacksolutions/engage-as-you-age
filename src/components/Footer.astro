@@ -1,0 +1,62 @@
+---
+const year = new Date().getFullYear();
+
+const FOOTER_LINKS = [
+  { href: '/', label: 'Home' },
+  { href: '/services', label: 'Services' },
+  { href: '/why-engage', label: 'Why Engage' },
+  { href: '/about', label: 'About' },
+  { href: '/work-for-us', label: 'Work For Us' },
+  { href: '/service-area', label: 'Service Area' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/contact', label: 'Contact' },
+];
+
+const SOCIAL_LINKS = [
+  { href: 'https://www.facebook.com/engageasyouage', label: 'Facebook' },
+  { href: 'https://www.youtube.com/user/EngageAsYouAge/videos', label: 'YouTube' },
+];
+---
+
+<footer class="border-t border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-900">
+  <div class="mx-auto max-w-4xl px-4 py-10 sm:px-6">
+    <div class="flex flex-col items-center gap-6 sm:flex-row sm:justify-between">
+      <p class="text-sm font-semibold text-gray-900 dark:text-white">
+        Engage As You Age
+      </p>
+
+      <nav aria-label="Footer navigation">
+        <ul class="flex flex-wrap justify-center gap-x-6 gap-y-2 list-none m-0 p-0">
+          {FOOTER_LINKS.map(({ href, label }) => (
+            <li>
+              <a
+                href={href}
+                class="text-sm text-gray-500 no-underline hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+              >
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        {SOCIAL_LINKS.map(({ href, label }) => (
+          <a
+            href={href}
+            class="text-sm text-gray-500 no-underline hover:text-brand-600 dark:text-gray-400 dark:hover:text-brand-400 transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {label}
+            <span class="sr-only">(opens in new tab)</span>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <p class="mt-8 text-center text-xs text-gray-400 dark:text-gray-500">
+      &copy; 2009&ndash;{year} Engage As You Age, LLC &middot; All Rights Reserved
+    </p>
+  </div>
+</footer>
