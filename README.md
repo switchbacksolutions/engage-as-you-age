@@ -1,13 +1,12 @@
-# Astro Template
+# Engage As You Age
 
-A production-ready Astro.js blog template with TypeScript, Tailwind CSS, MDX,
-content collections, CloudCannon CMS integration, and Netlify deployment.
+Website for [Engage As You Age](https://engageasyouage.com) — the preeminent senior social
+interaction service in Northern California, founded by Ben Lewis in 2009. Built with Astro,
+Tailwind CSS, and CloudCannon CMS; deployed on Netlify.
 
 ## Quick start
 
 ```bash
-git clone https://github.com/your-org/astro-template.git my-site
-cd my-site
 npm install
 npm run dev
 ```
@@ -66,8 +65,8 @@ title: 'My New Post'
 description: 'A short description for SEO.'
 pubDate: '2024-03-01'
 tags:
-  - astro
-  - tutorial
+  - seniors
+  - dementia
 draft: false
 ---
 
@@ -76,12 +75,8 @@ Post content goes here.
 
 ## Deployment
 
-Connect the repository to [Netlify](https://netlify.com). The `netlify.toml`
-configures the build command, publish directory, Node version, security
-headers, and caching rules automatically.
+The site is hosted on [Netlify](https://netlify.com) at `engageasyouage.com`. The `netlify.toml`
+configures the build command, publish directory, Node version, security headers, and caching rules
+automatically. Content is managed through [CloudCannon](https://cloudcannon.com).
 
 See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) for full instructions.
-
-## License
-
-MIT
