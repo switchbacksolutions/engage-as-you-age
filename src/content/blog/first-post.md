@@ -4,7 +4,7 @@ description: >
   Learn how to build blazing-fast websites with Astro, the all-in-one web
   framework designed for content-driven sites.
 pubDate: '2024-01-15'
-heroImage: '/images/astro-hero.jpg'
+heroImage: '/images/senior-woman-garden.jpg'
 tags:
   - astro
   - web-development

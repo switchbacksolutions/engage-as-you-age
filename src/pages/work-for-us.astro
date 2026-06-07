@@ -28,32 +28,45 @@ const steps = [
     </section>
 
     <!-- About the role -->
-    <section class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
-      <div class="prose-content">
-        <p>
-          We're seeking Activity Specialists across the Greater Bay Area for part-time positions. We
-          welcome individuals with expertise and passion for lifelong learning — yoga instructors,
-          artists, historians, and anyone with specialized knowledge or a love of conversation.
-        </p>
-        <p>
-          Prior experience working with seniors is not required. We're looking for candidates with
-          enthusiasm, intelligence, patience, and curiosity. If that sounds like you, we'd love to
-          hear from you.
-        </p>
-
-        <h2>Our Screening Process</h2>
-        <ol>
-          {steps.map((step) => <li>{step}</li>)}
-        </ol>
-
-        <h2>What Our Employees Say</h2>
-        <blockquote>
+    <section class="mx-auto max-w-5xl px-4 py-16 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div class="prose-content">
           <p>
-            "Engage As You Age is the most caring and conscientious employer I've ever worked for.
-            They are genuinely interested in employee success."
+            We're seeking Activity Specialists across the Greater Bay Area for part-time positions. We
+            welcome individuals with expertise and passion for lifelong learning — yoga instructors,
+            artists, historians, and anyone with specialized knowledge or a love of conversation.
           </p>
-          <footer>&mdash; Amie, South San Francisco</footer>
-        </blockquote>
+          <p>
+            Prior experience working with seniors is not required. We're looking for candidates with
+            enthusiasm, intelligence, patience, and curiosity. If that sounds like you, we'd love to
+            hear from you.
+          </p>
+
+          <h2>Our Screening Process</h2>
+          <ol>
+            {steps.map((step) => <li>{step}</li>)}
+          </ol>
+
+          <h2>What Our Employees Say</h2>
+          <blockquote>
+            <p>
+              "Engage As You Age is the most caring and conscientious employer I've ever worked for.
+              They are genuinely interested in employee success."
+            </p>
+            <footer>&mdash; Amie, South San Francisco</footer>
+          </blockquote>
+        </div>
+        <div class="lg:sticky lg:top-8">
+          <img
+            src="/images/senior-yoga.jpg"
+            alt="A younger and senior woman practicing yoga together in a wellness center"
+            class="rounded-2xl w-full object-cover shadow-lg"
+            style="aspect-ratio: 3/4"
+            loading="lazy"
+            width={800}
+            height={1067}
+          />
+        </div>
       </div>
     </section>
 

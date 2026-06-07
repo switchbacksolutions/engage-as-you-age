@@ -5,7 +5,7 @@ description: >
   the @apply directive, dark mode, and component-level styles.
 pubDate: '2024-02-01'
 updatedDate: '2024-02-10'
-heroImage: '/images/tailwind-hero.jpg'
+heroImage: '/images/senior-woman-flowers.jpg'
 tags:
   - tailwind
   - css

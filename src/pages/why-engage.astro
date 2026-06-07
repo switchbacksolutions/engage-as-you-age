@@ -45,20 +45,33 @@ const benefits = [
     </section>
 
     <!-- Body -->
-    <section class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
-      <h2 class="text-3xl font-semibold text-gray-900 dark:text-white text-balance">
-        Connection is Essential for Healthy Aging
-      </h2>
-      <p class="mt-6 text-lg text-gray-600 dark:text-gray-400 text-pretty">
-        Unfortunately, as we grow older, it becomes more difficult to maintain the social fabric that
-        keeps our mind and spirit strong. Engage As You Age creates authentic connections that reduce
-        loneliness and its associated side effects. We pair our older adult clients with individuals who
-        complement their personality and interests to cultivate relationships that are genuine and
-        engaging.
-      </p>
+    <section class="mx-auto max-w-5xl px-4 py-16 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
+        <div>
+          <h2 class="text-3xl font-semibold text-gray-900 dark:text-white text-balance">
+            Connection is Essential for Healthy Aging
+          </h2>
+          <p class="mt-6 text-lg text-gray-600 dark:text-gray-400 text-pretty">
+            Unfortunately, as we grow older, it becomes more difficult to maintain the social fabric that
+            keeps our mind and spirit strong. Engage As You Age creates authentic connections that reduce
+            loneliness and its associated side effects. We pair our older adult clients with individuals who
+            complement their personality and interests to cultivate relationships that are genuine and
+            engaging.
+          </p>
+        </div>
+        <img
+          src="/images/senior-woman-outdoors.jpg"
+          alt="Senior woman walking confidently outdoors in nature"
+          class="rounded-2xl w-full object-cover shadow-lg"
+          style="aspect-ratio: 4/3"
+          loading="lazy"
+          width={800}
+          height={600}
+        />
+      </div>
 
       <!-- Benefits -->
-      <ul class="mt-12 grid gap-6 sm:grid-cols-2 list-none m-0 p-0">
+      <ul class="grid gap-6 sm:grid-cols-2 list-none m-0 p-0">
         {benefits.map(({ title, description }) => (
           <li class="card">
             <h3 class="font-semibold text-gray-900 dark:text-white">{title}</h3>
