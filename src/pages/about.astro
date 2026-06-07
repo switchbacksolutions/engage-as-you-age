@@ -6,48 +6,120 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
   title="About Us"
   description="Learn about Engage As You Age — the preeminent senior social interaction service in Northern California, founded by Ben Lewis in 2009."
 >
-  <main class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
-    <h1 class="text-4xl font-bold text-gray-900 dark:text-white">About Us</h1>
+  <main>
+    <!-- Hero: intro + photo -->
+    <section class="bg-white dark:bg-gray-950">
+      <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:py-20">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div>
+            <h1 class="text-4xl font-bold text-gray-900 dark:text-white">About Us</h1>
+            <div class="prose-content mt-6">
+              <p>
+                Engage As You Age is the preeminent social interaction service provider in Northern California.
+                For over a decade, we have been dedicated to facilitating social engagement and lifelong learning
+                for elderly individuals. Our social visits are designed to stimulate and enhance cognitive and
+                social interactions, while also providing much-needed respite for family caregivers.
+              </p>
+              <p>
+                Founded in 2009 in San Francisco, we have paired thousands of seniors with smart, empathetic
+                specialists who share their interests and passions — with a particular focus on those living with
+                dementia, Alzheimer's, or physical or cognitive limitations.
+              </p>
+            </div>
+          </div>
+          <img
+            src="/images/senior-woman-portrait.jpg"
+            alt="A joyful senior woman at a social gathering"
+            class="rounded-2xl w-full object-cover shadow-xl"
+            style="aspect-ratio: 4/5"
+            loading="eager"
+            width={800}
+            height={1000}
+          />
+        </div>
+      </div>
+    </section>
 
-    <div class="prose-content mt-8">
-      <p>
-        Engage As You Age is the preeminent social interaction service provider in Northern California.
-        For over a decade, we have been dedicated to facilitating social engagement and lifelong learning
-        for elderly individuals. Our social visits are designed to stimulate and enhance cognitive and
-        social interactions, while also providing much-needed respite for family caregivers.
-      </p>
+    <!-- Founder, Press, Join team -->
+    <section class="bg-gray-50 dark:bg-gray-900">
+      <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6">
+        <div class="grid sm:grid-cols-2 gap-8 sm:gap-12 items-center">
+          <img
+            src="/images/ben-headshot.avif"
+            alt="Ben Lewis, founder of Engage As You Age"
+            class="rounded-2xl w-full shadow-xl"
+            loading="lazy"
+            width={832}
+            height={491}
+          />
+          <div class="prose-content">
+            <h2>Our Founder — Ben Lewis</h2>
+            <p>
+              Ben Lewis is an expert on aging in place and family connectivity technologies. His background
+              includes teaching and volunteer work internationally, as well as roles in education,
+              telecommunications, and the internet industry. He holds a summa cum laude degree from Washington
+              University and an MA in History from Yale University.
+            </p>
+            <p>
+              Ben personally meets with all families and conducts final interviews for staff, ensuring every
+              match is made with care and intention.
+            </p>
+            <p class="not-prose">
+              <a href="mailto:blewis@engageasyouage.com" class="btn-primary">Contact Ben</a>
+            </p>
+          </div>
+        </div>
 
-      <p>
-        Founded in 2009 in San Francisco, we have paired thousands of seniors with smart, empathetic
-        specialists who share their interests and passions — with a particular focus on those living with
-        dementia, Alzheimer's, or physical or cognitive limitations.
-      </p>
+        <div class="prose-content max-w-3xl mx-auto mt-16">
+          <h2>Press</h2>
+          <p>
+            Engage As You Age has been featured in the <em>San Francisco Chronicle</em>, CBS 5, the{' '}
+            <em>Marin Independent Journal</em>, and the <em>Jewish Weekly of Northern California</em>,
+            recognized for helping keep seniors intellectually stimulated and socially connected.
+          </p>
+          <ul>
+            <li>
+              <a href="https://web.archive.org/web/20121026020652/http://www.sfgate.com/entertainment/article/Engage-as-You-Age-creates-friendships-for-elderly-2336682.php" target="_blank" rel="noopener noreferrer">San Francisco Chronicle</a> —
+              "Engage As You Age Creates Friendships for Elderly"
+            </li>
+            <li>
+              <a href="http://www.jweekly.com/article/full/62659/seniors08_11/" target="_blank" rel="noopener noreferrer">J., Jewish Weekly of Northern California</a> —
+              "Engage As You Age Selected as Best San Francisco Bay Area Activity for Seniors"
+            </li>
+            <li>
+              <a href="https://source.washu.edu/2011/02/entrepreneur-engages-the-elderly/" target="_blank" rel="noopener noreferrer">Washington University Magazine</a> —
+              "Entrepreneur Engages the Elderly"
+            </li>
+            <li>
+              <a href="https://www.marinij.com/2010/01/15/fine-living-service-helps-keep-seniors-intellectually-stimulated/" target="_blank" rel="noopener noreferrer">Marin Independent Journal</a> —
+              "Fine Living: Service Helps Keep Seniors Intellectually Stimulated"
+            </li>
+            <li>
+              <a href="https://youtu.be/2LwXGwkI7Jo" target="_blank" rel="noopener noreferrer">CBS 5</a> —
+              TV special "Engage As You Age"
+            </li>
+            <li>
+              <a href="https://jweekly.com/2010/02/05/tuesdays-with-selma-a-weekly-visitation-that-does-my-heart-good/" target="_blank" rel="noopener noreferrer">J., The Jewish News of Northern California</a> —
+              "Tuesdays with Selma: A Weekly Visitation That Does My Heart Good"
+            </li>
+            <li>
+              <a href="http://www.jweekly.com/article/full/40600/new-company-gives-seniors-someone-to-chat-with/" target="_blank" rel="noopener noreferrer">J., Jewish Weekly of Northern California</a> —
+              "New Company Gives Seniors Someone To Chat With"
+            </li>
+            <li>
+              <a href="http://www.ageinplacetech.com/news/engage-you-age" target="_blank" rel="noopener noreferrer">Aging In Place Technology Watch</a> —
+              "Aging In Place Tech Business Potential"
+            </li>
+          </ul>
 
-      <h2>Our Founder — Ben Lewis</h2>
-      <p>
-        Ben Lewis is an expert on aging in place and family connectivity technologies. His background
-        includes teaching and volunteer work internationally, as well as roles in education,
-        telecommunications, and the internet industry. He holds a summa cum laude degree from Washington
-        University and an MA in History from Yale University.
-      </p>
-      <p>
-        Ben personally meets with all families and conducts final interviews for staff, ensuring every
-        match is made with care and intention.
-      </p>
-
-      <h2>Press</h2>
-      <p>
-        Engage As You Age has been featured in the <em>San Francisco Chronicle</em>, CBS 5, the{' '}
-        <em>Marin Independent Journal</em>, and the <em>Jewish Weekly of Northern California</em>,
-        recognized for helping keep seniors intellectually stimulated and socially connected.
-      </p>
-
-      <h2>Join Our Team</h2>
-      <p>
-        We're always looking for thoughtful, engaged individuals to join our team of Activity Specialists.
-        If you're passionate about making a difference in the lives of seniors,{' '}
-        <a href="/work-for-us">learn more about working with us</a>.
-      </p>
-    </div>
+          <h2>Join Our Team</h2>
+          <p>
+            We're always looking for thoughtful, engaged individuals to join our team of Activity Specialists.
+            If you're passionate about making a difference in the lives of seniors,{' '}
+            <a href="/work-for-us">learn more about working with us</a>.
+          </p>
+        </div>
+      </div>
+    </section>
   </main>
 </BaseLayout>
