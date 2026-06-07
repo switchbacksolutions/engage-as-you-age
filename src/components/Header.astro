@@ -26,9 +26,10 @@ function isGroupActive(item: (typeof NAV_LINKS)[number]): boolean {
   return item.children?.some((child) => isActive(child.href)) ?? false;
 }
 
-const linkClasses = (active: boolean) =>
+const linkClasses = (active: boolean, size: string = 'text-base') =>
   [
-    'text-base font-medium no-underline transition-colors',
+    size,
+    'font-medium no-underline transition-colors',
     active
       ? 'text-brand-600 dark:text-brand-400'
       : 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white',
@@ -109,45 +110,53 @@ const linkClasses = (active: boolean) =>
     </nav>
 
     <!-- Mobile navigation -->
-    <details class="nav-dropdown relative lg:hidden">
+    <details id="mobile-menu" class="nav-dropdown group/menu relative lg:hidden">
       <summary
-        class="flex cursor-pointer items-center justify-center rounded-md p-2 text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white"
-        aria-label="Open main menu"
+        class="relative z-10 flex cursor-pointer items-center justify-center rounded-md p-2 text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white"
+        aria-label="Toggle main menu"
       >
-        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <svg class="h-6 w-6 group-open/menu:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
         </svg>
+        <svg class="hidden h-6 w-6 group-open/menu:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
       </summary>
-      <nav aria-label="Mobile navigation" class="absolute right-0 top-full z-10 mt-2 w-60 rounded-lg border border-gray-200 bg-white p-2 shadow-lg dark:border-gray-700 dark:bg-gray-800">
-        <ul class="flex flex-col list-none m-0 p-0">
+      <nav
+        aria-label="Mobile navigation"
+        class="fixed inset-x-0 top-0 z-0 flex h-dvh flex-col items-center overflow-y-auto bg-white px-6 pb-10 pt-28 dark:bg-gray-900"
+      >
+        <ul class="m-0 flex w-full max-w-xs flex-col items-center gap-2 list-none p-0 text-center">
           {NAV_LINKS.map((item) => (
             item.children ? (
-              <li>
+              <li class="w-full">
                 <details class="nav-dropdown group">
                   <summary
                     class:list={[
-                      'flex cursor-pointer items-center justify-between gap-1 rounded-md px-3 py-2',
-                      linkClasses(isGroupActive(item)),
+                      'flex cursor-pointer items-center justify-center rounded-md px-3 py-2',
+                      linkClasses(isGroupActive(item), 'text-xl'),
                     ]}
                     aria-current={isGroupActive(item) ? 'page' : undefined}
                   >
-                    {item.label}
-                    <svg
-                      class="h-6 w-6 transition-transform group-open:rotate-180"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
+                    <span class="relative inline-flex items-center justify-center">
+                      {item.label}
+                      <svg
+                        class="absolute left-full ml-1 h-6 w-6 transition-transform group-open:rotate-180"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </span>
                   </summary>
-                  <ul class="ml-3 list-none border-l border-gray-200 pl-3 m-0 dark:border-gray-700">
+                  <ul class="m-0 flex list-none flex-col items-center gap-1 border-t border-gray-200 pt-2 dark:border-gray-700">
                     <li>
-                      <a href={item.href} class:list={['block rounded-md px-3 py-2', linkClasses(isActive(item.href))]} aria-current={isActive(item.href) ? 'page' : undefined}>
+                      <a href={item.href} class:list={['block rounded-md px-3 py-2', linkClasses(isActive(item.href), 'text-lg')]} aria-current={isActive(item.href) ? 'page' : undefined}>
                         Overview
                       </a>
                     </li>
@@ -155,7 +164,7 @@ const linkClasses = (active: boolean) =>
                       <li>
                         <a
                           href={child.href}
-                          class:list={['block rounded-md px-3 py-2', linkClasses(isActive(child.href))]}
+                          class:list={['block rounded-md px-3 py-2', linkClasses(isActive(child.href), 'text-lg')]}
                           aria-current={isActive(child.href) ? 'page' : undefined}
                         >
                           {child.label}
@@ -166,15 +175,15 @@ const linkClasses = (active: boolean) =>
                 </details>
               </li>
             ) : (
-              <li>
-                <a href={item.href} class:list={['block rounded-md px-3 py-2', linkClasses(isActive(item.href))]} aria-current={isActive(item.href) ? 'page' : undefined}>
+              <li class="w-full">
+                <a href={item.href} class:list={['block rounded-md px-3 py-2', linkClasses(isActive(item.href), 'text-xl')]} aria-current={isActive(item.href) ? 'page' : undefined}>
                   {item.label}
                 </a>
               </li>
             )
           ))}
-          <li class="mt-1">
-            <a href="/contact" class="btn-primary block text-center text-xs px-4 py-2">
+          <li class="mt-3 w-full">
+            <a href="/contact" class="btn-primary block text-center text-sm px-4 py-3">
               Schedule a consultation
             </a>
           </li>
@@ -216,5 +225,11 @@ const linkClasses = (active: boolean) =>
         }
       }
     });
+  });
+
+  // Lock background scrolling while the fullscreen mobile menu is open.
+  const mobileMenu = document.querySelector<HTMLDetailsElement>('#mobile-menu');
+  mobileMenu?.addEventListener('toggle', () => {
+    document.body.classList.toggle('overflow-hidden', mobileMenu.open);
   });
 </script>
