@@ -42,8 +42,8 @@ const recentPosts = allPosts
           </div>
           <div>
             <img
-              src="/images/senior-caregiver-hands.jpg"
-              alt="Senior and caregiver sharing a warm moment together"
+              src="/images/senior-couple-smiling.jpg"
+              alt="A smiling senior couple standing arm in arm at home"
               class="rounded-2xl w-full object-cover shadow-2xl"
               style="aspect-ratio: 4/3"
               loading="eager"
@@ -52,26 +52,6 @@ const recentPosts = allPosts
             />
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- ─── Stats bar ─────────────────────────────────────────────────── -->
-    <section class="bg-brand-50 dark:bg-gray-900 border-y border-brand-100 dark:border-gray-800">
-      <div class="mx-auto max-w-4xl px-4 py-10 sm:px-6">
-        <dl class="grid sm:grid-cols-3 gap-6 text-center">
-          <div>
-            <dd class="text-4xl font-bold text-brand-600 dark:text-brand-400">15+</dd>
-            <dt class="mt-1 text-sm text-gray-500 dark:text-gray-400">Years serving the Bay Area</dt>
-          </div>
-          <div class="sm:border-x sm:border-brand-100 dark:sm:border-gray-700">
-            <dd class="text-4xl font-bold text-brand-600 dark:text-brand-400">1,000s</dd>
-            <dt class="mt-1 text-sm text-gray-500 dark:text-gray-400">Seniors matched with specialists</dt>
-          </div>
-          <div>
-            <dd class="text-4xl font-bold text-brand-600 dark:text-brand-400">No. 1</dd>
-            <dt class="mt-1 text-sm text-gray-500 dark:text-gray-400">Senior social service in N. California</dt>
-          </div>
-        </dl>
       </div>
     </section>
 
@@ -159,23 +139,129 @@ const recentPosts = allPosts
       </div>
     </section>
 
-    <!-- ─── Testimonial ───────────────────────────────────────────────── -->
+    <!-- ─── Testimonials ──────────────────────────────────────────────── -->
     <section class="bg-white dark:bg-gray-950">
       <div class="mx-auto max-w-3xl px-4 py-20 sm:px-6 text-center">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+          What Our Clients Say
+        </h2>
         <svg class="mx-auto mb-8 h-10 w-10 text-brand-200 dark:text-brand-800" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
           <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
         </svg>
-        <blockquote>
-          <p class="text-2xl font-medium italic text-gray-800 dark:text-gray-200 text-balance leading-relaxed">
-            "Engage As You Age has been like finding a diamond in a field of weeds. It's given me such a feeling of relief."
-          </p>
-          <footer class="mt-8">
-            <p class="font-semibold text-gray-900 dark:text-white">Carol S.</p>
-            <p class="text-sm text-gray-500 dark:text-gray-400">San Francisco</p>
-          </footer>
-        </blockquote>
+
+        <div
+          id="testimonial-carousel"
+          class="relative"
+          role="region"
+          aria-roledescription="carousel"
+          aria-label="Client testimonials"
+        >
+          <div class="overflow-hidden">
+            <ul id="testimonial-track" class="flex list-none m-0 p-0 transition-transform duration-500 ease-out">
+              {[
+                {
+                  quote: "Engage As You Age has been like finding a diamond in a field of weeds. It's given me such a feeling of relief.",
+                  name: 'Carol S.',
+                  location: 'San Francisco',
+                },
+                {
+                  quote: 'Engage As You Age has filled a need, a very critical one, that no other organization comes close to addressing. Connection! Mom is happier, keener, healthier and has a more positive outlook on life.',
+                  name: 'Laura D.',
+                  location: 'Oakland',
+                },
+                {
+                  quote: 'My 87-year-old father has become more engaged with others in his assisted living community. It is wonderful to have someone come and listen to his stories with a fresh ear and perspective.',
+                  name: 'Nancy R.',
+                  location: 'Palo Alto',
+                },
+              ].map(({ quote, name, location }, i) => (
+                <li class="w-full shrink-0 px-2" role="group" aria-roledescription="slide" aria-label={`${i + 1} of 3`}>
+                  <blockquote>
+                    <p class="text-2xl font-medium italic text-gray-800 dark:text-gray-200 text-balance leading-relaxed">
+                      "{quote}"
+                    </p>
+                    <footer class="mt-8">
+                      <p class="font-semibold text-gray-900 dark:text-white">{name}</p>
+                      <p class="text-sm text-gray-500 dark:text-gray-400">{location}</p>
+                    </footer>
+                  </blockquote>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <button
+            type="button"
+            id="testimonial-prev"
+            aria-label="Previous testimonial"
+            class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 sm:-translate-x-12 rounded-full p-2 text-gray-400 hover:text-brand-600 hover:bg-brand-50 dark:text-gray-500 dark:hover:text-brand-400 dark:hover:bg-gray-800 transition-colors"
+          >
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            id="testimonial-next"
+            aria-label="Next testimonial"
+            class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 sm:translate-x-12 rounded-full p-2 text-gray-400 hover:text-brand-600 hover:bg-brand-50 dark:text-gray-500 dark:hover:text-brand-400 dark:hover:bg-gray-800 transition-colors"
+          >
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+            </svg>
+          </button>
+
+          <div class="mt-10 flex justify-center gap-2" role="tablist" aria-label="Choose testimonial">
+            {[0, 1, 2].map((i) => (
+              <button
+                type="button"
+                class:list={[
+                  'testimonial-dot h-2.5 w-2.5 rounded-full transition-colors',
+                  i === 0 ? 'bg-brand-600 dark:bg-brand-400' : 'bg-gray-300 dark:bg-gray-700',
+                ]}
+                role="tab"
+                aria-label={`Show testimonial ${i + 1}`}
+                aria-selected={i === 0 ? 'true' : 'false'}
+                data-index={i}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
+
+    <script>
+      const track = document.getElementById('testimonial-track');
+      const prevBtn = document.getElementById('testimonial-prev');
+      const nextBtn = document.getElementById('testimonial-next');
+      const dots = Array.from(document.querySelectorAll('.testimonial-dot'));
+      const slideCount = dots.length;
+      let current = 0;
+
+      function render() {
+        if (!track) return;
+        track.style.transform = `translateX(-${current * 100}%)`;
+        dots.forEach((dot, i) => {
+          const active = i === current;
+          dot.classList.toggle('bg-brand-600', active);
+          dot.classList.toggle('dark:bg-brand-400', active);
+          dot.classList.toggle('bg-gray-300', !active);
+          dot.classList.toggle('dark:bg-gray-700', !active);
+          dot.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+      }
+
+      function go(index: number) {
+        current = (index + slideCount) % slideCount;
+        render();
+      }
+
+      prevBtn?.addEventListener('click', () => go(current - 1));
+      nextBtn?.addEventListener('click', () => go(current + 1));
+      dots.forEach((dot) => {
+        dot.addEventListener('click', () => go(Number(dot.getAttribute('data-index'))));
+      });
+    </script>
 
     <!-- ─── Press ─────────────────────────────────────────────────────── -->
     <section class="bg-gray-50 dark:bg-gray-900 border-y border-gray-100 dark:border-gray-800">
@@ -183,9 +269,23 @@ const recentPosts = allPosts
         <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-8">
           As seen in
         </p>
-        <ul class="flex flex-wrap justify-center items-center gap-x-10 gap-y-4 list-none m-0 p-0">
-          {['San Francisco Chronicle', 'CBS 5', 'Marin Independent Journal', 'Jewish Weekly of Northern California'].map((pub) => (
-            <li class="text-sm font-semibold text-gray-400 dark:text-gray-500 italic">{pub}</li>
+        <ul class="flex flex-wrap md:flex-nowrap justify-center items-center gap-x-6 gap-y-4 list-none m-0 p-0">
+          {[
+            { name: 'San Francisco Chronicle', src: '/images/press/sf-chronicle.svg', width: 202, height: 24 },
+            { name: 'CBS News Bay Area (KPIX)', src: '/images/press/cbs-5-kpix.svg', width: 101, height: 24 },
+            { name: 'Marin Independent Journal', src: '/images/press/marin-ij.svg', width: 246, height: 24 },
+            { name: 'J. The Jewish News of Northern California', src: '/images/press/j-jewish-news.jpg', width: 51, height: 24 },
+          ].map(({ name, src, width, height }) => (
+            <li class="shrink-0">
+              <img
+                src={src}
+                alt={name}
+                width={width}
+                height={height}
+                class="h-6 w-auto object-contain grayscale opacity-50 transition-opacity hover:opacity-90 dark:brightness-0 dark:invert dark:opacity-40 dark:hover:opacity-70"
+                loading="lazy"
+              />
+            </li>
           ))}
         </ul>
       </div>
