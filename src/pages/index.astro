@@ -17,10 +17,10 @@ const recentPosts = allPosts
 
     <!-- ─── Hero ──────────────────────────────────────────────────────── -->
     <section class="bg-white dark:bg-gray-950">
-      <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+      <div class="mx-auto max-w-content px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div>
-            <p class="text-sm font-semibold uppercase tracking-widest text-brand-600 dark:text-brand-400 mb-5">
+            <p class="text-base font-semibold uppercase tracking-widest text-brand-600 dark:text-brand-400 mb-5">
               San Francisco Bay Area
             </p>
             <h1 class="text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 dark:text-white text-balance" style="line-height: 1.1">
@@ -33,7 +33,7 @@ const recentPosts = allPosts
               <a href="/contact" class="btn-primary">Schedule a consultation</a>
               <a href="/services" class="btn-secondary">Learn how it works</a>
             </div>
-            <p class="mt-6 text-sm text-gray-500 dark:text-gray-400">
+            <p class="mt-6 text-base text-gray-600 dark:text-gray-400">
               Or call us: <a
                 href="tel:4156906944"
                 class="font-semibold text-brand-600 dark:text-brand-400 no-underline hover:underline"
@@ -57,7 +57,7 @@ const recentPosts = allPosts
 
     <!-- ─── How it works ──────────────────────────────────────────────── -->
     <section class="bg-white dark:bg-gray-950">
-      <div class="mx-auto max-w-4xl px-4 py-20 sm:px-6">
+      <div class="mx-auto max-w-content px-4 py-20 sm:px-6">
         <h2 class="text-center text-3xl font-bold text-gray-900 dark:text-white mb-16">
           How it works
         </h2>
@@ -93,7 +93,7 @@ const recentPosts = allPosts
 
     <!-- ─── Services ─────────────────────────────────────────────────── -->
     <section class="bg-gray-50 dark:bg-gray-900">
-      <div class="mx-auto max-w-5xl px-4 py-20 sm:px-6">
+      <div class="mx-auto max-w-content px-4 py-20 sm:px-6">
         <h2 class="text-center text-3xl font-bold text-gray-900 dark:text-white mb-12">
           What we offer
         </h2>
@@ -157,7 +157,7 @@ const recentPosts = allPosts
           aria-label="Client testimonials"
         >
           <div class="overflow-hidden">
-            <ul id="testimonial-track" class="flex list-none m-0 p-0 transition-transform duration-500 ease-out">
+            <div id="testimonial-track" class="flex transition-transform duration-500 ease-out">
               {[
                 {
                   quote: "Engage As You Age has been like finding a diamond in a field of weeds. It's given me such a feeling of relief.",
@@ -175,19 +175,19 @@ const recentPosts = allPosts
                   location: 'Palo Alto',
                 },
               ].map(({ quote, name, location }, i) => (
-                <li class="w-full shrink-0 px-2" role="group" aria-roledescription="slide" aria-label={`${i + 1} of 3`}>
+                <div class="w-full shrink-0 px-2" role="group" aria-roledescription="slide" aria-label={`${i + 1} of 3`}>
                   <blockquote>
                     <p class="text-2xl font-medium italic text-gray-800 dark:text-gray-200 text-balance leading-relaxed">
                       "{quote}"
                     </p>
                     <footer class="mt-8">
                       <p class="font-semibold text-gray-900 dark:text-white">{name}</p>
-                      <p class="text-sm text-gray-500 dark:text-gray-400">{location}</p>
+                      <p class="text-base text-gray-600 dark:text-gray-300">{location}</p>
                     </footer>
                   </blockquote>
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
 
           <button
@@ -265,8 +265,8 @@ const recentPosts = allPosts
 
     <!-- ─── Press ─────────────────────────────────────────────────────── -->
     <section class="bg-gray-50 dark:bg-gray-900 border-y border-gray-100 dark:border-gray-800">
-      <div class="mx-auto max-w-4xl px-4 py-12 sm:px-6 text-center">
-        <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-8">
+      <div class="mx-auto max-w-content px-4 py-12 sm:px-6 text-center">
+        <p class="text-base font-semibold uppercase tracking-widest text-gray-600 dark:text-gray-400 mb-8">
           As seen in
         </p>
         <ul class="flex flex-wrap md:flex-nowrap justify-center items-center gap-x-6 gap-y-4 list-none m-0 p-0">
@@ -293,7 +293,7 @@ const recentPosts = allPosts
 
     <!-- ─── CTA band ──────────────────────────────────────────────────── -->
     <section class="bg-brand-600 dark:bg-brand-800">
-      <div class="mx-auto max-w-4xl px-4 py-20 sm:px-6 text-center">
+      <div class="mx-auto max-w-content px-4 py-20 sm:px-6 text-center">
         <h2 class="text-3xl font-bold text-white text-balance">
           Give your loved one the gift of connection.
         </h2>
@@ -303,13 +303,13 @@ const recentPosts = allPosts
         <div class="mt-10 flex flex-wrap justify-center gap-4">
           <a
             href="/contact"
-            class="inline-flex items-center rounded-full bg-white px-8 py-3 text-sm font-semibold text-brand-700 shadow hover:bg-brand-50 transition-colors"
+            class="inline-flex items-center rounded-full bg-white px-8 py-3 text-base font-semibold text-brand-700 shadow hover:bg-brand-50 transition-colors"
           >
             Schedule a Consultation
           </a>
           <a
             href="tel:4156906944"
-            class="inline-flex items-center rounded-full border-2 border-white px-8 py-3 text-sm font-semibold text-white hover:bg-brand-700 transition-colors"
+            class="inline-flex items-center rounded-full border-2 border-white px-8 py-3 text-base font-semibold text-white hover:bg-brand-700 transition-colors"
           >
             Call 415-690-6944
           </a>
@@ -320,14 +320,14 @@ const recentPosts = allPosts
     <!-- ─── Recent blog posts ─────────────────────────────────────────── -->
     {recentPosts.length > 0 && (
       <section class="bg-white dark:bg-gray-950">
-        <div class="mx-auto max-w-5xl px-4 py-20 sm:px-6">
+        <div class="mx-auto max-w-content px-4 py-20 sm:px-6">
           <div class="flex items-baseline justify-between mb-10">
             <h2 class="text-2xl font-bold text-gray-900 dark:text-white">
               From the blog
             </h2>
             <a
               href="/blog"
-              class="text-sm font-medium text-brand-600 no-underline hover:underline dark:text-brand-400"
+              class="text-base font-medium text-brand-600 no-underline hover:underline dark:text-brand-400"
             >
               View all →
             </a>
@@ -356,10 +356,10 @@ const recentPosts = allPosts
                   <h3 class="text-lg font-semibold text-gray-900 group-hover:text-brand-600 dark:text-white dark:group-hover:text-brand-400 transition-colors text-balance">
                     {post.data.title}
                   </h3>
-                  <p class="mt-2 text-sm text-gray-600 dark:text-gray-400 line-clamp-3">
+                  <p class="mt-2 text-base text-gray-600 dark:text-gray-400 line-clamp-3">
                     {post.data.description}
                   </p>
-                  <p class="mt-4 text-xs text-gray-500 dark:text-gray-400">
+                  <p class="mt-4 text-base text-gray-600 dark:text-gray-400">
                     <FormattedDate date={post.data.pubDate} format="short" />
                   </p>
                 </a>
