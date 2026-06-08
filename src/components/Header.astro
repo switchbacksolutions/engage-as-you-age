@@ -11,8 +11,12 @@ const NAV_LINKS = [
     ],
   },
   { href: '/blog', label: 'Blog' },
-  { href: '/contact', label: 'Contact' },
 ];
+
+const PHONE_NUMBER = '415-690-6944';
+const PHONE_HREF = 'tel:4156906944';
+const PHONE_ICON_PATH =
+  'M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z';
 
 const pathname = new URL(Astro.request.url).pathname;
 
@@ -56,12 +60,12 @@ const linkClasses = (active: boolean, size: string = 'text-base') =>
             <li class="relative">
               <details class="nav-dropdown group">
                 <summary
-                  class:list={['inline cursor-pointer', linkClasses(isGroupActive(item))]}
+                  class:list={['inline-flex items-center cursor-pointer', linkClasses(isGroupActive(item))]}
                   aria-current={isGroupActive(item) ? 'page' : undefined}
                 >
                   {item.label}
                   <svg
-                    class="ml-1 inline-block h-6 w-6 align-middle transition-transform group-open:rotate-180"
+                    class="ml-1 h-6 w-6 shrink-0 transition-transform group-open:rotate-180"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                     aria-hidden="true"
@@ -102,8 +106,20 @@ const linkClasses = (active: boolean, size: string = 'text-base') =>
           )
         ))}
         <li>
+          <a
+            href={PHONE_HREF}
+            class="inline-flex items-center gap-1.5 text-base font-medium text-gray-600 no-underline transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+            aria-label={`Call Engage As You Age at ${PHONE_NUMBER}`}
+          >
+            <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d={PHONE_ICON_PATH} />
+            </svg>
+            {PHONE_NUMBER}
+          </a>
+        </li>
+        <li>
           <a href="/contact" class="btn-primary text-xs px-4 py-2">
-            Schedule a consultation
+            Contact
           </a>
         </li>
       </ul>
@@ -182,9 +198,21 @@ const linkClasses = (active: boolean, size: string = 'text-base') =>
               </li>
             )
           ))}
+          <li class="w-full">
+            <a
+              href={PHONE_HREF}
+              class="inline-flex w-full items-center justify-center gap-2 rounded-md px-3 py-2 text-xl font-medium text-gray-600 no-underline transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+              aria-label={`Call Engage As You Age at ${PHONE_NUMBER}`}
+            >
+              <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d={PHONE_ICON_PATH} />
+              </svg>
+              {PHONE_NUMBER}
+            </a>
+          </li>
           <li class="mt-3 w-full">
             <a href="/contact" class="btn-primary block text-center text-sm px-4 py-3">
-              Schedule a consultation
+              Contact
             </a>
           </li>
         </ul>
