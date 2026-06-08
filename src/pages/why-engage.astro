@@ -32,7 +32,7 @@ const benefits = [
   <main>
     <!-- Hero -->
     <section class="bg-gradient-to-br from-brand-50 to-white dark:from-gray-900 dark:to-gray-950">
-      <div class="mx-auto max-w-4xl px-4 py-20 sm:px-6 text-center">
+      <div class="mx-auto max-w-content px-4 py-20 sm:px-6 text-center">
         <h1 class="text-5xl font-bold tracking-tight text-gray-900 dark:text-white text-balance">
           Why Engage
         </h1>
@@ -45,7 +45,7 @@ const benefits = [
     </section>
 
     <!-- Body -->
-    <section class="mx-auto max-w-5xl px-4 py-16 sm:px-6">
+    <section class="mx-auto max-w-content px-4 py-16 sm:px-6">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
         <div>
           <h2 class="text-3xl font-semibold text-gray-900 dark:text-white text-balance">
@@ -75,7 +75,7 @@ const benefits = [
         {benefits.map(({ title, description }) => (
           <li class="card">
             <h3 class="font-semibold text-gray-900 dark:text-white">{title}</h3>
-            <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">{description}</p>
+            <p class="mt-2 text-base text-gray-600 dark:text-gray-400">{description}</p>
           </li>
         ))}
       </ul>
@@ -83,7 +83,7 @@ const benefits = [
 
     <!-- CTA -->
     <section class="bg-brand-600 dark:bg-brand-800">
-      <div class="mx-auto max-w-4xl px-4 py-16 sm:px-6 text-center">
+      <div class="mx-auto max-w-content px-4 py-16 sm:px-6 text-center">
         <h2 class="text-3xl font-semibold text-white">
           Give Your Loved One the Gift of Connection
         </h2>
@@ -93,13 +93,13 @@ const benefits = [
         <div class="mt-8 flex flex-wrap justify-center gap-4">
           <a
             href="/contact"
-            class="inline-flex items-center rounded-md bg-white px-6 py-3 text-sm font-semibold text-brand-700 shadow hover:bg-brand-50 transition-colors"
+            class="inline-flex items-center rounded-md bg-white px-6 py-3 text-base font-semibold text-brand-700 shadow hover:bg-brand-50 transition-colors"
           >
             Schedule a Consultation
           </a>
           <a
             href="/services"
-            class="inline-flex items-center rounded-md border border-white px-6 py-3 text-sm font-semibold text-white hover:bg-brand-700 transition-colors"
+            class="inline-flex items-center rounded-md border border-white px-6 py-3 text-base font-semibold text-white hover:bg-brand-700 transition-colors"
           >
             View Our Services
           </a>

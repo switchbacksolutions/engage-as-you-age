@@ -80,7 +80,7 @@
   /* Primary button — pill shape, generous padding (Papa-style) */
   .btn-primary {
     @apply inline-flex items-center gap-2 rounded-full bg-brand-600 px-6 py-3
-           text-sm font-semibold text-white shadow-sm
+           text-base font-semibold text-white shadow-sm
            hover:bg-brand-700 focus:outline-none focus:ring-2
            focus:ring-brand-500 focus:ring-offset-2
            transition-colors duration-150 cursor-pointer;
@@ -89,7 +89,7 @@
   /* Secondary / outline button */
   .btn-secondary {
     @apply inline-flex items-center gap-2 rounded-full border-2 border-gray-300 bg-white
-           px-6 py-3 text-sm font-semibold text-gray-700
+           px-6 py-3 text-base font-semibold text-gray-700
            hover:border-gray-400 hover:bg-gray-50 focus:outline-none focus:ring-2
            focus:ring-brand-500 focus:ring-offset-2
            dark:border-gray-600 dark:bg-gray-900 dark:text-gray-200
@@ -98,7 +98,7 @@
 
   /* Tag / badge pill */
   .tag-pill {
-    @apply inline-block rounded-full bg-brand-100 px-3 py-0.5 text-xs font-medium
+    @apply inline-block rounded-full bg-brand-100 px-3 py-1 text-base font-medium
            text-brand-800 dark:bg-brand-900 dark:text-brand-200;
   }
 
@@ -114,6 +114,7 @@
     @apply prose prose-gray max-w-none
            prose-headings:font-semibold
            prose-a:text-brand-600 prose-a:no-underline hover:prose-a:underline
+           dark:prose-a:text-brand-400
            prose-code:rounded prose-code:bg-brand-50 prose-code:px-1 prose-code:py-0.5
            prose-code:text-brand-700 prose-code:before:content-none prose-code:after:content-none
            dark:prose-invert;
@@ -124,14 +125,17 @@
     @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
     clip: rect(0, 0, 0, 0);
   }
-
-  .section-container {
-    @apply mx-auto max-w-4xl px-4 sm:px-6;
-  }
 }
 
 /* ─── Utility extensions ────────────────────────────────────────────────────── */
 @layer utilities {
+  /* Standardized site content width — replaces the previous mix of
+     max-w-4xl/5xl/6xl so the header, footer, and page sections all
+     align to the same edge at large viewports. */
+  .max-w-content {
+    max-width: 61.25rem; /* 980px */
+  }
+
   .text-balance {
     text-wrap: balance;
   }

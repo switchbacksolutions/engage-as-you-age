@@ -19,9 +19,9 @@ const SOCIAL_LINKS = [
 ---
 
 <footer class="border-t border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-900">
-  <div class="mx-auto max-w-4xl px-4 py-10 sm:px-6">
+  <div class="mx-auto max-w-content px-4 py-10 sm:px-6">
     <div class="flex flex-col items-center gap-6 sm:flex-row sm:justify-between">
-      <p class="text-sm font-semibold text-gray-900 dark:text-white">
+      <p class="text-base font-semibold text-gray-900 dark:text-white">
         Engage As You Age
       </p>
 
@@ -31,7 +31,7 @@ const SOCIAL_LINKS = [
             <li>
               <a
                 href={href}
-                class="text-sm text-gray-500 no-underline hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
+                class="text-base text-gray-600 no-underline hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
               >
                 {label}
               </a>
@@ -44,7 +44,7 @@ const SOCIAL_LINKS = [
         {SOCIAL_LINKS.map(({ href, label }) => (
           <a
             href={href}
-            class="text-sm text-gray-500 no-underline hover:text-brand-600 dark:text-gray-400 dark:hover:text-brand-400 transition-colors"
+            class="text-base text-gray-600 no-underline hover:text-brand-600 dark:text-gray-400 dark:hover:text-brand-400 transition-colors"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -55,7 +55,7 @@ const SOCIAL_LINKS = [
       </div>
     </div>
 
-    <p class="mt-8 text-center text-xs text-gray-400 dark:text-gray-500">
+    <p class="mt-8 text-center text-base text-gray-600 dark:text-gray-400">
       &copy; 2009&ndash;{year} Engage As You Age, LLC &middot; All Rights Reserved
     </p>
   </div>
