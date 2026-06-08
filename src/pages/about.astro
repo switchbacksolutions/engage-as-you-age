@@ -1,5 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import seniorPortrait from '@/assets/images/senior-woman-portrait.jpg';
+import benHeadshot from '@/assets/images/ben-headshot.avif';
 ---
 
 <BaseLayout
@@ -27,14 +30,14 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
               </p>
             </div>
           </div>
-          <img
-            src="/images/senior-woman-portrait.jpg"
+          <Image
+            src={seniorPortrait}
             alt="A joyful senior woman at a social gathering"
             class="rounded-2xl w-full object-cover shadow-xl"
             style="aspect-ratio: 4/5"
             loading="eager"
-            width={800}
-            height={1000}
+            width={640}
+            height={800}
           />
         </div>
       </div>
@@ -44,13 +47,13 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     <section class="bg-gray-50 dark:bg-gray-900">
       <div class="mx-auto max-w-content px-4 py-16 sm:px-6">
         <div class="grid sm:grid-cols-2 gap-8 sm:gap-12 items-center">
-          <img
-            src="/images/ben-headshot.avif"
+          <Image
+            src={benHeadshot}
             alt="Ben Lewis, founder of Engage As You Age"
             class="rounded-2xl w-full shadow-xl"
             loading="lazy"
-            width={832}
-            height={491}
+            width={640}
+            height={378}
           />
           <div class="prose-content">
             <h2>Our Founder — Ben Lewis</h2>

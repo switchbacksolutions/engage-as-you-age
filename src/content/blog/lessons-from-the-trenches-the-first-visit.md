@@ -4,7 +4,7 @@ description: >
   What seventeen years of matching seniors with companions has taught me about
   chemistry, timing, and why the "perfect on paper" match sometimes falls flat.
 pubDate: '2026-02-03'
-heroImage: '/images/seniors-laughing.jpg'
+heroImage: '../../assets/images/seniors-laughing.jpg'
 tags:
   - Lessons from the Trenches
   - Companionship

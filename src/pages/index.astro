@@ -1,7 +1,11 @@
 ---
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import FormattedDate from '@/components/FormattedDate.astro';
+import heroImg from '@/assets/images/seniors-laughing-conversation.jpg';
+import serviceImg1 from '@/assets/images/senior-swing.jpg';
+import serviceImg2 from '@/assets/images/seniors-laughing.jpg';
 
 const allPosts = await getCollection('blog', ({ data }) => !data.draft);
 const recentPosts = allPosts
@@ -17,14 +21,14 @@ const recentPosts = allPosts
 
     <!-- ─── Hero ──────────────────────────────────────────────────────── -->
     <section class="relative isolate flex min-h-[36rem] items-center overflow-hidden lg:min-h-[44rem]">
-      <img
-        src="/images/seniors-laughing-conversation.jpg"
+      <Image
+        src={heroImg}
         alt="A senior woman laughing warmly while talking with friends over drinks"
         class="absolute inset-0 -z-10 h-full w-full -scale-x-100 object-cover object-center"
         loading="eager"
         fetchpriority="high"
-        width={2200}
-        height={1466}
+        width={1400}
+        height={933}
       />
       <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black/35 via-black/15 to-transparent"></div>
       <div class="absolute inset-0 -z-10 bg-gradient-to-r from-black/25 via-black/5 to-transparent"></div>
@@ -103,8 +107,8 @@ const recentPosts = allPosts
         </h2>
         <div class="grid sm:grid-cols-2 gap-8">
           <a href="/services#one-on-one" class="card group no-underline block">
-            <img
-              src="/images/senior-swing.jpg"
+            <Image
+              src={serviceImg1}
               alt="Senior enjoying an outing at a park with her activity specialist"
               class="rounded-xl w-full object-cover mb-5"
               style="aspect-ratio: 16/9"
@@ -120,8 +124,8 @@ const recentPosts = allPosts
             </p>
           </a>
           <a href="/services#group-programs" class="card group no-underline block">
-            <img
-              src="/images/seniors-laughing.jpg"
+            <Image
+              src={serviceImg2}
               alt="Two senior women laughing together while arranging flowers"
               class="rounded-xl w-full object-cover mb-5"
               style="aspect-ratio: 16/9"
@@ -341,13 +345,13 @@ const recentPosts = allPosts
               <li>
                 <a href={`/blog/${post.id}`} class="group block card h-full no-underline">
                   {post.data.heroImage && (
-                    <img
+                    <Image
                       src={post.data.heroImage}
                       alt={post.data.title}
                       class="mb-4 h-40 w-full rounded-xl object-cover"
                       loading="lazy"
-                      width={600}
-                      height={315}
+                      width={400}
+                      height={210}
                     />
                   )}
                   {post.data.tags.length > 0 && (

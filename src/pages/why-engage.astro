@@ -1,5 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import gardenImg from '@/assets/images/senior-woman-garden.jpg';
+import outdoorsImg from '@/assets/images/senior-woman-outdoors.jpg';
 
 const benefits = [
   {
@@ -32,8 +35,8 @@ const benefits = [
   <main>
     <!-- Hero -->
     <section class="relative isolate flex min-h-[28rem] items-center overflow-hidden lg:min-h-[34rem]">
-      <img
-        src="/images/senior-woman-garden.jpg"
+      <Image
+        src={gardenImg}
         alt="A senior woman finding peace and joy in a garden"
         class="absolute inset-0 -z-10 h-full w-full object-cover object-center"
         loading="eager"
@@ -71,14 +74,14 @@ const benefits = [
             engaging.
           </p>
         </div>
-        <img
-          src="/images/senior-woman-outdoors.jpg"
+        <Image
+          src={outdoorsImg}
           alt="Senior woman walking confidently outdoors in nature"
           class="rounded-2xl w-full object-cover shadow-lg"
           style="aspect-ratio: 4/3"
           loading="lazy"
-          width={800}
-          height={600}
+          width={640}
+          height={480}
         />
       </div>
 

@@ -4,7 +4,7 @@ description: >
   Why so many seniors initially resist companionship — and the small shifts in
   language and pacing that often turn "absolutely not" into "well, maybe."
 pubDate: '2026-03-03'
-heroImage: '/images/senior-woman-portrait.jpg'
+heroImage: '../../assets/images/senior-woman-portrait.jpg'
 tags:
   - Lessons from the Trenches
   - Companionship
