@@ -1,0 +1,81 @@
+---
+/**
+ * src/components/BlogPostListItem.astro
+ *
+ * A single entry in a blog post listing — hero thumbnail, tags, title,
+ * description, and metadata. Shared by the blog index and tag archive pages.
+ */
+
+import type { CollectionEntry } from 'astro:content';
+import FormattedDate from '@/components/FormattedDate.astro';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+---
+
+<li class="py-8 first:pt-0">
+  <article class="group flex gap-6">
+    <!-- Hero thumbnail -->
+    {post.data.heroImage && (
+      <a
+        href={`/blog/${post.id}`}
+        class="hidden sm:block flex-shrink-0"
+        tabindex="-1"
+        aria-hidden="true"
+      >
+        <img
+          src={post.data.heroImage}
+          alt=""
+          class="h-28 w-44 rounded-lg object-cover"
+          loading="lazy"
+          width={352}
+          height={224}
+        />
+      </a>
+    )}
+
+    <div class="flex-1 min-w-0">
+      <!-- Tags -->
+      {post.data.tags.length > 0 && (
+        <div class="mb-2 flex flex-wrap gap-1">
+          {post.data.tags.map((tag) => (
+            <a href={`/blog/tags/${encodeURIComponent(tag)}`} class="tag-pill no-underline hover:opacity-80 transition-opacity">
+              {tag}
+            </a>
+          ))}
+        </div>
+      )}
+
+      <!-- Title -->
+      <h2 class="text-xl font-semibold">
+        <a
+          href={`/blog/${post.id}`}
+          class="text-gray-900 no-underline hover:text-brand-600 dark:text-white dark:hover:text-brand-400 transition-colors"
+        >
+          {post.data.title}
+        </a>
+      </h2>
+
+      <!-- Description -->
+      <p class="mt-2 text-base text-gray-600 dark:text-gray-400 line-clamp-2">
+        {post.data.description}
+      </p>
+
+      <!-- Metadata -->
+      <div class="mt-3 flex items-center gap-3 text-base text-gray-600 dark:text-gray-400">
+        <FormattedDate date={post.data.pubDate} format="long" />
+        {post.data.updatedDate && post.data.updatedDate > post.data.pubDate && (
+          <>
+            <span aria-hidden="true">·</span>
+            <span>
+              Updated <FormattedDate date={post.data.updatedDate} format="short" />
+            </span>
+          </>
+        )}
+      </div>
+    </div>
+  </article>
+</li>

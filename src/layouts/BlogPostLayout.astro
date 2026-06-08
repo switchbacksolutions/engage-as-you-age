@@ -42,7 +42,9 @@ const { title, description, pubDate, updatedDate, heroImage, tags } = post.data;
       {tags.length > 0 && (
         <div class="mb-4 flex flex-wrap gap-2">
           {tags.map((tag) => (
-            <span class="tag-pill">{tag}</span>
+            <a href={`/blog/tags/${encodeURIComponent(tag)}`} class="tag-pill no-underline hover:opacity-80 transition-opacity">
+              {tag}
+            </a>
           ))}
         </div>
       )}

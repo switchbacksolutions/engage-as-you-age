@@ -1,0 +1,56 @@
+---
+/**
+ * src/pages/blog/tags/[tag].astro — Tag archive page
+ *
+ * Statically generated for every tag used by a published post; lists posts
+ * carrying that tag, newest first. Linked from the tag pills on /blog and
+ * on each post.
+ */
+
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import BlogPostListItem from '@/components/BlogPostListItem.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
+
+  return tags.map((tag) => ({
+    params: { tag },
+    props: {
+      posts: posts
+        .filter((post) => post.data.tags.includes(tag))
+        .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()),
+    },
+  }));
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<BaseLayout
+  title={`Posts tagged "${tag}"`}
+  description={`Browse all blog posts tagged "${tag}".`}
+>
+  <main class="mx-auto max-w-content px-4 py-12 sm:px-6">
+    <header class="mb-10">
+      <a
+        href="/blog"
+        class="text-base font-medium text-brand-600 no-underline hover:underline dark:text-brand-400"
+      >
+        &larr; All posts
+      </a>
+      <h1 class="mt-3 text-4xl font-bold text-gray-900 dark:text-white">
+        Tagged: <span class="tag-pill align-middle">{tag}</span>
+      </h1>
+      <p class="mt-3 text-lg text-gray-600 dark:text-gray-400">
+        {posts.length} post{posts.length !== 1 ? 's' : ''}
+      </p>
+    </header>
+
+    <ul class="divide-y divide-gray-200 dark:divide-gray-700 list-none m-0 p-0" data-testid="blog-post-list">
+      {posts.map((post) => <BlogPostListItem post={post} />)}
+    </ul>
+  </main>
+</BaseLayout>
