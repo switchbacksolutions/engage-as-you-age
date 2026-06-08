@@ -1,5 +1,9 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import heroImg from '@/assets/images/senior-couple-smiling.jpg';
+import oneOnOneImg from '@/assets/images/senior-holding-hands.jpg';
+import groupImg from '@/assets/images/seniors-laughing.jpg';
 ---
 
 <BaseLayout
@@ -9,14 +13,14 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
   <main>
     <!-- Hero -->
     <section class="relative isolate flex min-h-[28rem] items-center overflow-hidden lg:min-h-[34rem]">
-      <img
-        src="/images/senior-couple-smiling.jpg"
+      <Image
+        src={heroImg}
         alt="A senior couple sharing a warm smile together"
         class="absolute inset-0 -z-10 h-full w-full object-cover object-center"
         loading="eager"
         fetchpriority="high"
-        width={1600}
-        height={900}
+        width={1200}
+        height={675}
       />
       <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black/35 via-black/15 to-transparent"></div>
       <div class="mx-auto w-full max-w-content px-4 py-20 text-center sm:px-6">
@@ -36,8 +40,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
     <!-- One-on-One Visits -->
     <section id="one-on-one" class="mx-auto max-w-content px-4 py-16 sm:px-6">
       <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
-        <img
-          src="/images/senior-holding-hands.jpg"
+        <Image
+          src={oneOnOneImg}
           alt="An older woman holding the hand of a younger caregiver"
           class="rounded-xl w-full object-cover aspect-video shadow-sm"
           loading="lazy"
@@ -89,8 +93,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
               reducing isolation and building community.
             </p>
           </div>
-          <img
-            src="/images/seniors-laughing.jpg"
+          <Image
+            src={groupImg}
             alt="Two older women sharing a laugh together"
             class="rounded-xl w-full object-cover aspect-video shadow-sm"
             loading="lazy"

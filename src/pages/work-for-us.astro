@@ -1,5 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import heroImg from '@/assets/images/senior-woman-flowers.jpg';
+import yogaImg from '@/assets/images/senior-yoga.jpg';
 
 const steps = [
   'Initial phone interview',
@@ -17,8 +20,8 @@ const steps = [
   <main>
     <!-- Hero -->
     <section class="relative isolate flex min-h-[28rem] items-center overflow-hidden lg:min-h-[34rem]">
-      <img
-        src="/images/senior-woman-flowers.jpg"
+      <Image
+        src={heroImg}
         alt="A senior woman delighting in fresh flowers"
         class="absolute inset-0 -z-10 h-full w-full object-cover object-center"
         loading="eager"
@@ -69,14 +72,14 @@ const steps = [
           </blockquote>
         </div>
         <div class="lg:sticky lg:top-8">
-          <img
-            src="/images/senior-yoga.jpg"
+          <Image
+            src={yogaImg}
             alt="A younger and senior woman practicing yoga together in a wellness center"
             class="rounded-2xl w-full object-cover shadow-lg"
             style="aspect-ratio: 3/4"
             loading="lazy"
-            width={800}
-            height={1067}
+            width={600}
+            height={800}
           />
         </div>
       </div>

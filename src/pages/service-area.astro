@@ -1,5 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import heroImg from '@/assets/images/senior-caregiver-hands.jpg';
+import communityImg from '@/assets/images/seniors-hands-community.jpg';
 
 const counties = [
   'Alameda',
@@ -20,8 +23,8 @@ const counties = [
   <main>
     <!-- Hero -->
     <section class="relative isolate flex min-h-[28rem] items-center overflow-hidden lg:min-h-[34rem]">
-      <img
-        src="/images/senior-caregiver-hands.jpg"
+      <Image
+        src={heroImg}
         alt="A caregiver gently holding the hands of a senior"
         class="absolute inset-0 -z-10 h-full w-full object-cover object-center"
         loading="eager"
@@ -53,14 +56,14 @@ const counties = [
         seniors and their families.
       </p>
 
-      <img
-        src="/images/seniors-hands-community.jpg"
+      <Image
+        src={communityImg}
         alt="Close-up of seniors' hands joined together in community"
         class="mt-10 rounded-2xl w-full object-cover shadow-sm"
         style="aspect-ratio: 16/6"
         loading="lazy"
-        width={1200}
-        height={450}
+        width={900}
+        height={338}
       />
 
       <h3 class="mt-10 text-xl font-semibold text-gray-900 dark:text-white">Counties We Serve</h3>
