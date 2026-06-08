@@ -4,7 +4,7 @@ description: >
   The guilt caregivers feel for needing a break is one of the most common — and
   most damaging — things I encounter. Here's how families can start to address it.
 pubDate: '2026-05-05'
-heroImage: '/images/senior-caregiver-hands.jpg'
+heroImage: '../../assets/images/senior-caregiver-hands.jpg'
 tags:
   - Lessons from the Trenches
   - Caregiver Burnout

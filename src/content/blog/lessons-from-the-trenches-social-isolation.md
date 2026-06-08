@@ -5,7 +5,7 @@ description: >
   Loneliness in older adults rarely announces itself. Here's how it tends to
   hide in plain sight — and the small, consistent things that help most.
 pubDate: 2026-06-02T00:00:00Z
-heroImage: /images/seniors-hands-community.jpg
+heroImage: '../../assets/images/seniors-hands-community.jpg'
 tags:
   - Lessons from the Trenches
   - Social Isolation

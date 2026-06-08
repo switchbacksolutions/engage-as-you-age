@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import outdoorsImg from '@/assets/images/senior-woman-outdoors.jpg';
 
 const benefits = [
   {
@@ -59,14 +61,14 @@ const benefits = [
             engaging.
           </p>
         </div>
-        <img
-          src="/images/senior-woman-outdoors.jpg"
+        <Image
+          src={outdoorsImg}
           alt="Senior woman walking confidently outdoors in nature"
           class="rounded-2xl w-full object-cover shadow-lg"
           style="aspect-ratio: 4/3"
           loading="lazy"
-          width={800}
-          height={600}
+          width={640}
+          height={480}
         />
       </div>
 

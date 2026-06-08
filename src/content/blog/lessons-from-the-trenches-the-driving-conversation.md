@@ -4,7 +4,7 @@ description: >
   Driving cessation is one of the toughest milestones in aging — tied to
   identity and independence. Here's what tends to make that conversation easier.
 pubDate: '2026-04-07'
-heroImage: '/images/senior-couple-smiling.jpg'
+heroImage: '../../assets/images/senior-couple-smiling.jpg'
 tags:
   - Lessons from the Trenches
   - Driving and Aging

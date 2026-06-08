@@ -1,7 +1,11 @@
 ---
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import FormattedDate from '@/components/FormattedDate.astro';
+import heroImg from '@/assets/images/senior-couple-smiling.jpg';
+import serviceImg1 from '@/assets/images/senior-swing.jpg';
+import serviceImg2 from '@/assets/images/seniors-tea-garden.jpg';
 
 const allPosts = await getCollection('blog', ({ data }) => !data.draft);
 const recentPosts = allPosts
@@ -41,8 +45,8 @@ const recentPosts = allPosts
             </p>
           </div>
           <div>
-            <img
-              src="/images/senior-couple-smiling.jpg"
+            <Image
+              src={heroImg}
               alt="A smiling senior couple standing arm in arm at home"
               class="rounded-2xl w-full object-cover shadow-2xl"
               style="aspect-ratio: 4/3"
@@ -99,8 +103,8 @@ const recentPosts = allPosts
         </h2>
         <div class="grid sm:grid-cols-2 gap-8">
           <a href="/services#one-on-one" class="card group no-underline block">
-            <img
-              src="/images/senior-swing.jpg"
+            <Image
+              src={serviceImg1}
               alt="Senior enjoying an outing at a park with her activity specialist"
               class="rounded-xl w-full object-cover mb-5"
               style="aspect-ratio: 16/9"
@@ -116,8 +120,8 @@ const recentPosts = allPosts
             </p>
           </a>
           <a href="/services#group-programs" class="card group no-underline block">
-            <img
-              src="/images/seniors-tea-garden.jpg"
+            <Image
+              src={serviceImg2}
               alt="Senior women laughing together over tea in a garden"
               class="rounded-xl w-full object-cover mb-5"
               style="aspect-ratio: 16/9"
@@ -337,13 +341,13 @@ const recentPosts = allPosts
               <li>
                 <a href={`/blog/${post.id}`} class="group block card h-full no-underline">
                   {post.data.heroImage && (
-                    <img
+                    <Image
                       src={post.data.heroImage}
                       alt={post.data.title}
                       class="mb-4 h-40 w-full rounded-xl object-cover"
                       loading="lazy"
-                      width={600}
-                      height={315}
+                      width={400}
+                      height={210}
                     />
                   )}
                   {post.data.tags.length > 0 && (
