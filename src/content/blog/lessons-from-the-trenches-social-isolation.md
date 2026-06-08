@@ -6,10 +6,10 @@ description: >
 pubDate: '2026-06-02'
 heroImage: '/images/seniors-hands-community.jpg'
 tags:
-  - lessons-from-the-trenches
-  - social-isolation
-  - loneliness
-  - community
+  - Lessons from the Trenches
+  - Social Isolation
+  - Loneliness
+  - Community
 draft: false
 ---
 

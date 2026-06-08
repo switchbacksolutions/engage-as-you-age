@@ -6,10 +6,10 @@ description: >
 pubDate: '2026-04-07'
 heroImage: '/images/senior-couple-smiling.jpg'
 tags:
-  - lessons-from-the-trenches
-  - driving-and-aging
-  - independence
-  - family-caregivers
+  - Lessons from the Trenches
+  - Driving and Aging
+  - Independence
+  - Family Caregivers
 draft: false
 ---
 

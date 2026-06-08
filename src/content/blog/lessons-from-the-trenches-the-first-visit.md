@@ -6,10 +6,10 @@ description: >
 pubDate: '2026-02-03'
 heroImage: '/images/seniors-laughing.jpg'
 tags:
-  - lessons-from-the-trenches
-  - companionship
-  - matching-process
-  - family-caregivers
+  - Lessons from the Trenches
+  - Companionship
+  - Matching Process
+  - Family Caregivers
 draft: false
 ---
 
