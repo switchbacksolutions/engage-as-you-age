@@ -6,10 +6,10 @@ description: >
 pubDate: '2026-05-05'
 heroImage: '/images/senior-caregiver-hands.jpg'
 tags:
-  - lessons-from-the-trenches
-  - caregiver-burnout
-  - respite-care
-  - family-caregivers
+  - Lessons from the Trenches
+  - Caregiver Burnout
+  - Respite Care
+  - Family Caregivers
 draft: false
 ---
 

@@ -6,10 +6,10 @@ description: >
 pubDate: '2026-03-03'
 heroImage: '/images/senior-woman-portrait.jpg'
 tags:
-  - lessons-from-the-trenches
-  - companionship
-  - resistance-to-care
-  - family-caregivers
+  - Lessons from the Trenches
+  - Companionship
+  - Resistance to Care
+  - Family Caregivers
 draft: false
 ---
 

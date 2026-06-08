@@ -4,34 +4,43 @@
  *
  * Statically generated for every tag used by a published post; lists posts
  * carrying that tag, newest first. Linked from the tag pills on /blog and
- * on each post.
+ * on each post. The route param is a URL-safe slug (e.g. "family-caregivers")
+ * derived from the human-readable tag label (e.g. "Family Caregivers"), which
+ * is what gets displayed.
  */
 
 import { getCollection } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import BlogPostListItem from '@/components/BlogPostListItem.astro';
+import { slugify } from '@/lib/slugify';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
-  const tags = [...new Set(posts.flatMap((post) => post.data.tags))];
 
-  return tags.map((tag) => ({
-    params: { tag },
+  const labelsBySlug = new Map<string, string>();
+  for (const post of posts) {
+    for (const tag of post.data.tags) {
+      labelsBySlug.set(slugify(tag), tag);
+    }
+  }
+
+  return [...labelsBySlug.entries()].map(([slug, label]) => ({
+    params: { tag: slug },
     props: {
+      label,
       posts: posts
-        .filter((post) => post.data.tags.includes(tag))
+        .filter((post) => post.data.tags.some((tag) => slugify(tag) === slug))
         .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()),
     },
   }));
 }
 
-const { tag } = Astro.params;
-const { posts } = Astro.props;
+const { label, posts } = Astro.props;
 ---
 
 <BaseLayout
-  title={`Posts tagged "${tag}"`}
-  description={`Browse all blog posts tagged "${tag}".`}
+  title={`Posts tagged "${label}"`}
+  description={`Browse all blog posts tagged "${label}".`}
 >
   <main class="mx-auto max-w-content px-4 py-12 sm:px-6">
     <header class="mb-10">
@@ -42,7 +51,7 @@ const { posts } = Astro.props;
         &larr; All posts
       </a>
       <h1 class="mt-3 text-4xl font-bold text-gray-900 dark:text-white">
-        Tagged: <span class="tag-pill align-middle">{tag}</span>
+        Tagged: <span class="tag-pill align-middle">{label}</span>
       </h1>
       <p class="mt-3 text-lg text-gray-600 dark:text-gray-400">
         {posts.length} post{posts.length !== 1 ? 's' : ''}
