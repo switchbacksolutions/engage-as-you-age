@@ -1,5 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import heroImg from '@/assets/images/senior-caregiver-hands.jpg';
+import communityImg from '@/assets/images/seniors-hands-community.jpg';
 
 const counties = [
   'Alameda',
@@ -19,14 +22,26 @@ const counties = [
 >
   <main>
     <!-- Hero -->
-    <section class="bg-gradient-to-br from-brand-50 to-white dark:from-gray-900 dark:to-gray-950">
-      <div class="mx-auto max-w-content px-4 py-20 sm:px-6 text-center">
-        <h1 class="text-5xl font-bold tracking-tight text-gray-900 dark:text-white text-balance">
-          Our Service Area
-        </h1>
-        <p class="mx-auto mt-6 max-w-2xl text-xl text-gray-600 dark:text-gray-400 text-pretty">
-          Services designed to meet your needs, where you need them.
-        </p>
+    <section class="relative isolate flex min-h-[28rem] items-center overflow-hidden lg:min-h-[34rem]">
+      <Image
+        src={heroImg}
+        alt="A caregiver gently holding the hands of a senior"
+        class="absolute inset-0 -z-10 h-full w-full object-cover object-center"
+        loading="eager"
+        fetchpriority="high"
+        width={1400}
+        height={931}
+      />
+      <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black/35 via-black/15 to-transparent"></div>
+      <div class="mx-auto w-full max-w-content px-4 py-20 text-center sm:px-6">
+        <div class="mx-auto max-w-2xl rounded-3xl bg-white/85 p-8 backdrop-blur-sm sm:p-12">
+          <h1 class="text-5xl font-bold tracking-tight text-gray-900 text-balance">
+            Our Service Area
+          </h1>
+          <p class="mx-auto mt-6 max-w-2xl text-xl text-pretty text-gray-700">
+            Services designed to meet your needs, where you need them.
+          </p>
+        </div>
       </div>
     </section>
 
@@ -41,14 +56,14 @@ const counties = [
         seniors and their families.
       </p>
 
-      <img
-        src="/images/seniors-hands-community.jpg"
+      <Image
+        src={communityImg}
         alt="Close-up of seniors' hands joined together in community"
         class="mt-10 rounded-2xl w-full object-cover shadow-sm"
         style="aspect-ratio: 16/6"
         loading="lazy"
-        width={1200}
-        height={450}
+        width={900}
+        height={338}
       />
 
       <h3 class="mt-10 text-xl font-semibold text-gray-900 dark:text-white">Counties We Serve</h3>
@@ -79,20 +94,20 @@ const counties = [
     <!-- CTA -->
     <section class="bg-brand-600 dark:bg-brand-800">
       <div class="mx-auto max-w-content px-4 py-16 sm:px-6 text-center">
-        <h2 class="text-3xl font-semibold text-white">Serving Your Area?</h2>
+        <h2 class="text-3xl font-bold text-white text-balance">Serving Your Area?</h2>
         <p class="mx-auto mt-4 max-w-xl text-lg text-green-100">
           Contact us to confirm coverage in your neighborhood and schedule a free consultation.
         </p>
         <div class="mt-8 flex flex-wrap justify-center gap-4">
           <a
             href="/contact"
-            class="inline-flex items-center rounded-md bg-white px-6 py-3 text-base font-semibold text-brand-700 shadow hover:bg-brand-50 transition-colors"
+            class="inline-flex items-center rounded-full bg-white px-8 py-3 text-base font-semibold text-brand-700 shadow hover:bg-brand-50 transition-colors"
           >
             Contact Us
           </a>
           <a
             href="tel:4156906944"
-            class="inline-flex items-center rounded-md border border-white px-6 py-3 text-base font-semibold text-white hover:bg-brand-700 transition-colors"
+            class="inline-flex items-center rounded-full border-2 border-white px-8 py-3 text-base font-semibold text-white hover:bg-brand-700 transition-colors"
           >
             Call 415-690-6944
           </a>

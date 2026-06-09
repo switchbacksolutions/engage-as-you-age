@@ -6,16 +6,35 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
   title="Contact Us"
   description="Schedule a consultation with Engage As You Age. Call 415-690-6944 or fill out our contact form and we'll get back to you."
 >
-  <main class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
-    <h1 class="text-4xl font-bold text-gray-900 dark:text-white">
-      Contact Us to Schedule a Consultation
-    </h1>
-    <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
-      Please fill out the form below or call us at{' '}
-      <a href="tel:4156906944" class="font-medium">415-690-6944</a>{' '}
-      to get started today.
-    </p>
-    <p class="mt-2 text-gray-600 dark:text-gray-400">
+  <main>
+    <!-- Hero -->
+    <section class="relative isolate flex min-h-[22rem] items-center overflow-hidden lg:min-h-[26rem]">
+      <img
+        src="/images/senior-holding-hands.jpg"
+        alt="An older woman holding the hand of a younger caregiver"
+        class="absolute inset-0 -z-10 h-full w-full object-cover object-center"
+        loading="eager"
+        fetchpriority="high"
+        width={900}
+        height={624}
+      />
+      <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black/35 via-black/15 to-transparent"></div>
+      <div class="mx-auto w-full max-w-content px-4 py-16 text-center sm:px-6">
+        <div class="mx-auto max-w-2xl rounded-3xl bg-white/85 p-8 backdrop-blur-sm sm:p-10">
+          <h1 class="text-4xl font-bold tracking-tight text-gray-900 text-balance sm:text-5xl">
+            Contact Us to Schedule a Consultation
+          </h1>
+          <p class="mt-5 text-lg text-pretty text-gray-700">
+            Please fill out the form below or call us at{' '}
+            <a href="tel:4156906944" class="font-semibold text-gray-900 no-underline hover:underline">415-690-6944</a>{' '}
+            to get started today.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
+    <p class="text-gray-600 dark:text-gray-400">
       We'll take the time to understand the needs of you or your loved one to determine the most
       beneficial activities and conversational partner. We'll draw from a bank of carefully screened
       Activity Specialists and suggest a program that best meets your needs and schedule.
@@ -108,11 +127,12 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
       <div>
         <button
           type="submit"
-          class="inline-flex items-center rounded-md bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 transition-colors"
+          class="btn-primary"
         >
           Send Message
         </button>
       </div>
     </form>
+    </div>
   </main>
 </BaseLayout>

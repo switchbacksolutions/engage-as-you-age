@@ -4,7 +4,7 @@ title: 'Lessons from the Trenches: The Quiet Epidemic of Social Isolation'
 description: >
   Loneliness in older adults rarely announces itself. Here's how it tends to
   hide in plain sight — and the small, consistent things that help most.
-pubDate: 2026-06-02T00:00:00Z
+pubDate: '2026-06-02'
 heroImage: '../../assets/images/seniors-hands-community.jpg'
 tags:
   - Lessons from the Trenches
